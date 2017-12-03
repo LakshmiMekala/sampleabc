@@ -53,7 +53,16 @@
     {
       "provider":"TIBCOSoftware Services",
       "description":"Mashling gateway recipes from TIBCO Services",
-      "publish":[]
+      "publish":[
+        {
+          "recipe":"event-dispatcher-router-mashling",
+          "featured":true
+        },
+        {
+          "recipe":"rest-conditional",
+          "featured":false
+        }
+      ]
     }
   ]
 }
