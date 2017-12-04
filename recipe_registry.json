@@ -21,7 +21,7 @@
           "featured":true
         },
         {
-          "recipe":"RestTrigger-To-KafkaPublisher",
+          "recipe":"mqtt-producer",
           "featured":false
         }
       ]
