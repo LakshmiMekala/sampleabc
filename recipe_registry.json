@@ -15,6 +15,14 @@
         {
           "recipe":"rest-gateway-with-tracing",
           "featured":false
+        },
+        {
+          "recipe":"mqtt-gateway",
+          "featured":false
+        },
+        {
+          "recipe":"RestTrigger-To-KafkaPublisher",
+          "featured":false
         }
       ]
     },
