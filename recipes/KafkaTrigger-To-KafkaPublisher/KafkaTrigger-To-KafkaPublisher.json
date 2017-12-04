@@ -1,5 +1,5 @@
 {
-	"mashling_schema": "0.2.0",
+	"mashling_schema": "0.2",
 	"gateway": {
 		"name": "allRecipe",
 		"version": "1.0.0",
