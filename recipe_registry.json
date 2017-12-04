@@ -9,16 +9,12 @@
           "featured":true
         },
         {
-          "recipe":"rest-conditional-gateway",
-          "featured":false
-        },        
-        {
-          "recipe":"rest-gateway-with-tracing",
-          "featured":false
-        },
-        {
           "recipe":"mqtt-gateway",
           "featured":true
+        },
+        {
+          "recipe":"RestTrigger-To-KafkaPublisher",
+          "featured":false
         },
         {
           "recipe":"mqtt-producer",
