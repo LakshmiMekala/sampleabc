@@ -47,6 +47,10 @@
         {
           "recipe":"tunable-rest-gateway",
           "featured":false
+        },        
+        {
+          "recipe":"KafkaTrigger-To-KafkaPublisher",
+          "featured":false
         }
       ]
     },
