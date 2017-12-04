@@ -15,34 +15,6 @@
         {
           "recipe":"rest-gateway-with-tracing",
           "featured":false
-        },
-        {
-          "recipe":"mqtt-lambda-tci",
-          "featured":true
-        },
-        {
-          "recipe":"secure-rest-gateway",
-          "featured":true
-        },
-        {
-          "recipe":"mqtt-gateway",
-          "featured":false
-        },
-        {
-          "recipe":"RestTrigger-To-KafkaPublisher",
-          "featured":false
-        },
-        {
-          "recipe":"secure-rest-gateway-with-basic-auth",
-          "featured":false
-        },
-        {
-          "recipe":"mqtt-producer",
-          "featured":false
-        },        
-        {
-          "recipe":"tunable-rest-gateway",
-          "featured":false
         }
       ]
     },
