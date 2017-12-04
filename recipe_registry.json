@@ -19,6 +19,10 @@
         {
           "recipe":"RestTrigger-To-KafkaPublisher",
           "featured":false
+        },
+        {
+          "recipe":"mqtt-lamda-tci",
+          "featured":false
         }
       ]
     },
