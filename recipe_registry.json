@@ -17,10 +17,6 @@
           "featured":false
         },
         {
-          "recipe":"mqtt-gateway",
-          "featured":true
-        },
-        {
           "recipe":"RestTrigger-To-KafkaPublisher",
           "featured":false
         }
