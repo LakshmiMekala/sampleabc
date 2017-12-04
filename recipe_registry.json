@@ -15,10 +15,6 @@
         {
           "recipe":"rest-gateway-with-tracing",
           "featured":false
-        },
-        {
-          "recipe":"mqtt-gateway",
-          "featured":false
         }
       ]
     },
