@@ -21,7 +21,7 @@
           "featured":false
         },
         {
-          "recipe":"mqtt-lamda-tci",
+          "recipe":"mqtt-lambda-tci",
           "featured":false
         }
       ]
