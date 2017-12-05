@@ -13,7 +13,7 @@
           "featured":false
         },        
         {
-          "recipe":"rest-gateway-with-tracing",
+          "recipe":"secure-rest-gateway",
           "featured":false
         },
         {
