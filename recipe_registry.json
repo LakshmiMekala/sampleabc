@@ -15,18 +15,6 @@
         {
           "recipe":"secure-rest-gateway",
           "featured":false
-        },
-        {
-          "recipe":"RestTrigger-To-KafkaPublisher",
-          "featured":false
-        },
-        {
-          "recipe":"mqtt-lambda-tci",
-          "featured":false
-        },
-        {
-          "recipe":"sample-gateway",
-          "featured":false
         }
       ]
     },
