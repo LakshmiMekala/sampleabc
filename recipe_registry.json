@@ -23,6 +23,10 @@
         {
           "recipe":"mqtt-lambda-tci",
           "featured":false
+        },
+        {
+          "recipe":"sample-gateway",
+          "featured":false
         }
       ]
     },
