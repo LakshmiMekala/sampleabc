@@ -17,7 +17,7 @@
     },
     {
       "provider":"TIBCOSoftware Services",
-      "url": "https://github.com/jpark800/my_mashling_recipes",
+      "url": "https://github.com/LakshmiMekala/recipesamples",
       "description":"Mashling gateway recipes from TIBCO Services",
       "publish":[
         {
@@ -25,7 +25,7 @@
           "featured":false
         },
         {
-          "recipe":"reference-gateway",
+          "recipe":"rest-gateway-with-tracing",
           "featured":false
         }
       ]
