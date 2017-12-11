@@ -2,19 +2,12 @@
   "recipe_repos":[
     {
       "provider":"TIBCOSoftware Engineering",
+      "url": "recipes",
       "description":"Mashling gateway recipes from TIBCOSoftware Engineering",
       "publish":[
         {
           "recipe":"event-dispatcher-router-mashling",
           "featured":true
-        },
-        {
-          "recipe":"rest-conditional-gateway",
-          "featured":false
-        },        
-        {
-          "recipe":"secure-rest-gateway",
-          "featured":false
         },
         {
           "recipe":"RestTrigger-To-KafkaPublisher",
@@ -24,8 +17,17 @@
     },
     {
       "provider":"TIBCOSoftware Services",
+      "url": "https://github.com/jpark800/my_mashling_recipes",
       "description":"Mashling gateway recipes from TIBCO Services",
       "publish":[
+        {
+          "recipe":"rest-conditional-gateway",
+          "featured":false
+        },
+        {
+          "recipe":"reference-gateway",
+          "featured":false
+        }
       ]
     }
   ]
