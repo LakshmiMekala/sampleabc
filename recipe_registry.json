@@ -12,10 +12,6 @@
         {
           "recipe":"RestTrigger-To-KafkaPublisher",
           "featured":false
-        },
-        {
-          "recipe":"mqtt-gateway",
-          "featured":false
         }
       ]
     },
@@ -26,6 +22,10 @@
       "publish":[
         {
           "recipe":"rest-conditional-gateway",
+          "featured":false
+        },
+        {
+          "recipe":"rest-gateway-with-tracing",
           "featured":false
         }
       ]
