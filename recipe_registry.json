@@ -16,10 +16,6 @@
         {
           "recipe":"mqtt-producer",
           "featured":false
-        },
-        {
-          "recipe":"rest-conditional-gateway",
-          "featured":false
         }
       ]
     },
