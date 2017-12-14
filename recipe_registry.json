@@ -1,7 +1,7 @@
 {
   "recipe_repos":[
     {
-      "provider":"TIBCOSoftware_Engineering",
+      "provider":"TIBCOSoftware-Engineering",
       "url": "recipes",
       "description":"Mashling gateway recipes from TIBCOSoftware Engineering",
       "publish":[
@@ -20,15 +20,9 @@
       ]
     },
     {
-      "provider":"TIBCOSoftware_Services",
-      "url": "https://github.com/LakshmiMekala/recipesamples",
+      "provider":"TIBCOSoftware-Services",
       "description":"Mashling gateway recipes from TIBCO Services",
-      "publish":[
-        {
-          "recipe":"rest-conditional-gateway",
-          "featured":false
-        }
-      ]
+      "publish":[]
     }
   ]
 }
