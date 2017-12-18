@@ -20,13 +20,13 @@
         {
           "recipe":"mqtt-lambda-tci",
           "featured":true
-        },
-        {
-          "recipe":"secure-rest-gateway",
-          "featured":true
-        },
+        },        
         {
           "recipe":"RestTrigger-To-KafkaPublisher",
+          "featured":false
+        },
+        {
+          "recipe":"secure-rest-gateway-with-basic-auth",
           "featured":false
         },
         {
