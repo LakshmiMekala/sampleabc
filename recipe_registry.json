@@ -24,10 +24,6 @@
         {
           "recipe":"RestTrigger-To-KafkaPublisher",
           "featured":false
-        },
-        {
-          "recipe":"secure-rest-gateway-with-basic-auth",
-          "featured":false
         },        
         {
           "recipe":"tunable-rest-gateway",
@@ -36,7 +32,7 @@
       ]
     },
     {
-      "provider":"TIBCOSoftware Services",      
+      "provider":"TIBCOSoftware Services INDIA LTD",      
       "url": "https://github.com/LakshmiMekala/recipesamples",
       "description":"Mashling gateway recipes from TIBCO Services",
       "publish":[
