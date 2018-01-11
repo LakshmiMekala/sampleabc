@@ -18,7 +18,7 @@
           "featured":false
         },
         {
-          "recipe":"mqtt-gateway",
+          "recipe":"mqtt-lambda-tci",
           "featured":true
         },        
         {
