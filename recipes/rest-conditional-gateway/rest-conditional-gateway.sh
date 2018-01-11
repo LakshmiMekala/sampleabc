@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash 
 
 function get_test_cases {
     local my_list=( testcase1 testcase2 )
@@ -8,7 +8,7 @@ function testcase1 {
 ./rest-conditional-gateway &
 pId=$!
 response=$(curl --request GET http://localhost:9096/pets/24 --write-out '%{http_code}' --silent --output /dev/null)
-Kill -9 $pId
+kill -9 $pId
 if [ $response -eq 200  ] 
     then 
         echo "PASS"
@@ -20,7 +20,7 @@ function testcase2 {
 ./rest-conditional-gateway &
 pId=$!
 response=$(curl --request GET http://localhost:9096/pets/24 --write-out '%{http_code}' --silent --output /dev/null)
-Kill -9 $pId
+kill -9 $pId
 if [ $response -eq 200  ] 
     then 
         echo "PASS"
