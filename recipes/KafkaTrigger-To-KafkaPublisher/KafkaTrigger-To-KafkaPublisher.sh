@@ -6,17 +6,17 @@ function testcase1 {
 
     pushd $GOPATH/kafka
     
-    bin/windows/zookeeper-server-start.bat config/zookeeper.properties &
+    bin/zookeeper-server-start.sh config/zookeeper.properties &
     pId=$!
     #echo "$pId"
     sleep 10
 
-    bin/windows/kafka-server-start.bat config/server.properties &
+    bin/kafka-server-start.sh config/server.properties &
     pId1=$!
     #echo "$pId"
     sleep 10
 
-    bin/windows/kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic publishpet &
+    bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic publishpet &
     pId2=$!
     sleep 10
 
@@ -25,17 +25,17 @@ function testcase1 {
     pId4=$!
     sleep 20
 
-    cd ..
-    cd kafka
+    
+    cd $GOPATH/kafka
     current_time=$(date "+%Y.%m.%d-%H.%M.%S")
     #echo check now
-    echo "{\"country\":\"USA\",\"Current Time\" :\"$current_time\"}" | bin/windows/kafka-console-producer.bat --broker-list localhost:9092 --topic publishpet
-    #bin/windows/kafka-console-producer.bat --broker-list localhost:9092 --topic syslog   --property "parse.key=true"  --property "key.separator=:"  key1:USA &
+    echo "{\"country\":\"USA\",\"Current Time\" :\"$current_time\"}" | bin/kafka-console-producer.sh --broker-list localhost:9092 --topic publishpet
+    #bin/kafka-console-producer.sh --broker-list localhost:9092 --topic syslog   --property "parse.key=true"  --property "key.separator=:"  key1:USA &
     pId3=$!
 
     sleep 2
     
-    var="$(bin/windows/kafka-console-consumer.bat --topic SubscribePet --bootstrap-server localhost:9092 --timeout-ms 9000 --consumer.config $GOPATH/kafka/config/consumer.properties)"
+    var="$(bin/kafka-console-consumer.sh --topic SubscribePet --bootstrap-server localhost:9092 --timeout-ms 9000 --consumer.config $GOPATH/kafka/config/consumer.properties)"
     
     pId5=$!
     #sleep 10
