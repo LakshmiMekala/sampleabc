@@ -21,7 +21,7 @@ function testcase1 {
     sleep 10
 
     popd
-    ./KafkaTrigger-To-KafkaPublisher &
+    ./kafkatrigger-to-kafkapublisher &
     pId4=$!
     sleep 20
 
@@ -37,14 +37,14 @@ function testcase1 {
     
     var="$(bin/kafka-console-consumer.sh --topic SubscribePet --bootstrap-server localhost:9092 --timeout-ms 9000 --consumer.config $GOPATH/kafka/config/consumer.properties)"
     
-    pId5=$!
+    #pId5=$!
     #sleep 10
     #echo VAR=$var
     #sleep 10
     #echo var="$var"
-    kill -SIGINT $pId
     kill -SIGINT $pId1
-    kill -SIGINT $pId5
+    kill -SIGINT $pId
+    #kill -SIGINT $pId5
     kill -SIGINT $pId3
     kill -SIGINT $pId4
     sleep 20
