@@ -36,7 +36,7 @@ function testcase1 {
 
     sleep 30
     
-    var="$(bin/kafka-console-consumer.sh --topic SubscribePet --bootstrap-server localhost:9092 --timeout-ms 9000 --consumer.config $GOPATH/kafka/config/consumer.properties)"
+    var="$(bin/kafka-console-consumer.sh --topic subscribepet --bootstrap-server localhost:9092 --timeout-ms 9000 --consumer.config $GOPATH/kafka/config/consumer.properties)"
     
 	echo "here2"
 	
