@@ -32,9 +32,10 @@ function testcase1 {
 
     cd $GOPATH/kafka
     current_time=$(date "+%Y.%m.%d-%H.%M.%S")
-    echo "{\"country\":\"USA\",\"Current Time\" :\"$current_time\"}" | bin/kafka-console-producer.sh --broker-list localhost:9092 --topic publishpet
+    echo "{\"country\":\"USA\",\"Current Time\" :\"$current_time\"}" | bin/kafka-console-producer.sh --broker-list localhost:9092 --topic publishpet &
     #bin/kafka-console-producer.sh --broker-list localhost:9092 --topic syslog   --property "parse.key=true"  --property "key.separator=:"  key1:USA &
     pId3=$!
+    
     echo "kafka pid3 : [$pId3]"
 
     sleep 30
