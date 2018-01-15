@@ -37,7 +37,7 @@ function testcase1 {
 
     sleep 40
     
-    var="$(bin/kafka-console-consumer.sh --topic subscribepet --bootstrap-server localhost:9092 --timeout-ms 9000 --consumer.config $GOPATH/kafka/config/consumer.properties)"
+    var="$(bin/kafka-console-consumer.sh --topic subscribepet --bootstrap-server localhost:9092 --timeout-ms 90000 --consumer.config $GOPATH/kafka/config/consumer.properties)"
     
 	
     #pId5=$!
@@ -47,9 +47,9 @@ function testcase1 {
     echo "$var"
     kill -SIGINT $pId1
     kill -SIGINT $pId
-    killjava=$(ps -C java -o pid)
-    killjava=${killjava:5}
-    kill -9 $killjava
+    stopjava=$(ps -C java -o pid)
+    stopjava=${stopjava:5}
+    kill -9 $stopjava
 	echo "here2"
     #kill -SIGINT $pId5
     kill -SIGINT $pId3
