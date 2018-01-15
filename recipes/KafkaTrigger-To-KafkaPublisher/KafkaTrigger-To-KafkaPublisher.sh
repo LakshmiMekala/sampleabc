@@ -28,7 +28,7 @@ function testcase1 {
     ./kafkatrigger-to-kafkapublisher &
     pId4=$!
     echo "kafka gateway pid : [$pId4]"
-    sleep 20
+    sleep 30
 
     cd $GOPATH/kafka
     current_time=$(date "+%Y.%m.%d-%H.%M.%S")
@@ -37,11 +37,11 @@ function testcase1 {
     pId3=$!
     echo "kafka pid3 : [$pId3]"
 
-    sleep 10
+    sleep 20
     
     kafkaMessage="$(bin/kafka-console-consumer.sh --topic subscribepet --bootstrap-server localhost:9092 --timeout-ms 9000 --consumer.config $GOPATH/kafka/config/consumer.properties)"
     
-	echo "kafka message value : [$kafkaMessage]"
+    echo "kafka message value : [$kafkaMessage]"
 	
  
     kill -SIGINT $pId1
@@ -53,7 +53,7 @@ function testcase1 {
     kill -SIGINT $pId4
     sleep 5
 
-    echo "$kafkaMessage" 
+    echo "received message : [$kafkaMessage]" 
     echo "{\"country\":\"USA\",\"Current Time\" :\"$current_time\"}"
 
     if [ "$kafkaMessage" == "{\"country\":\"USA\",\"Current Time\" :\"$current_time\"}" ] 
