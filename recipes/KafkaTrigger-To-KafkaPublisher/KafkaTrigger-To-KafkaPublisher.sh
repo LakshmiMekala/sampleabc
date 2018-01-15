@@ -37,7 +37,7 @@ function testcase1 {
     pId3=$!
     echo "kafka pid3 : [$pId3]"
 
-    sleep 10
+    sleep 30
     
     kafkaMessage="$(bin/kafka-console-consumer.sh --topic subscribepet --bootstrap-server localhost:9092 --timeout-ms 30000 --consumer.config $GOPATH/kafka/config/consumer.properties)"
     
@@ -53,7 +53,7 @@ function testcase1 {
     kill -SIGINT $pId4
     sleep 5
 
-    echo "$kafkaMessage" 
+    echo "received message : [$kafkaMessage]" 
     echo "{\"country\":\"USA\",\"Current Time\" :\"$current_time\"}"
 
     if [ "$kafkaMessage" == "{\"country\":\"USA\",\"Current Time\" :\"$current_time\"}" ] 
