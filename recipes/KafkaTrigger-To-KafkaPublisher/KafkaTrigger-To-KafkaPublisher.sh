@@ -1,3 +1,5 @@
+#!/bin/bash
+
 function get_test_cases {
     local my_list=( testcase1 )
     echo "${my_list[@]}"
@@ -8,61 +10,56 @@ function testcase1 {
     
     bin/zookeeper-server-start.sh config/zookeeper.properties &
     pId=$!
-    #echo "$pId"
-    sleep 20
+    echo "zookeeper pid : [$pId]"
+    sleep 10
 
     bin/kafka-server-start.sh config/server.properties &
     pId1=$!
-    #echo "$pId"
-    sleep 20
+    echo "kafka pid : [$pId1]"
+    sleep 10
 
     bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic publishpet &
     pId2=$!
-    sleep 20
-    echo "123"
+    echo "kafka create publishpet : [$pId2]"
+    sleep 10
+
     popd
-    echo "456"
+
     ./kafkatrigger-to-kafkapublisher &
     pId4=$!
-    sleep 30
+    echo "kafka gateway pid : [$pId4]"
+    sleep 20
 
-	echo "here1"
-    
     cd $GOPATH/kafka
     current_time=$(date "+%Y.%m.%d-%H.%M.%S")
-    #echo check now
     echo "{\"country\":\"USA\",\"Current Time\" :\"$current_time\"}" | bin/kafka-console-producer.sh --broker-list localhost:9092 --topic publishpet
     #bin/kafka-console-producer.sh --broker-list localhost:9092 --topic syslog   --property "parse.key=true"  --property "key.separator=:"  key1:USA &
     pId3=$!
+    echo "kafka pid3 : [$pId3]"
 
-    sleep 40
+    sleep 10
     
-    var="$(bin/kafka-console-consumer.sh --topic subscribepet --bootstrap-server localhost:9092 --timeout-ms 90000 --consumer.config $GOPATH/kafka/config/consumer.properties)"
+    kafkaMessage="$(bin/kafka-console-consumer.sh --topic subscribepet --bootstrap-server localhost:9092 --timeout-ms 9000 --consumer.config /home/ramesh/Downloads/abc/kafka/config/consumer.properties)"
     
+	echo "kafka message value : [$kafkaMessage]"
 	
-    #pId5=$!
-    #sleep 10
-    #echo VAR=$var
-    sleep 100
-    echo "$var"
+ 
     kill -SIGINT $pId1
+    sleep 5
     kill -SIGINT $pId
-    stopjava=$(ps -C java -o pid)
-    stopjava=${stopjava:5}
-    kill -9 $stopjava
-	echo "here2"
-    #kill -SIGINT $pId5
+    sleep 5
     kill -SIGINT $pId3
+    sleep 5
     kill -SIGINT $pId4
-    sleep 20
-    #echo "{\"country\":\"USA\",\"Current Time\" :\"$current_time\"}"
+    sleep 5
 
-    if [ "$var" == "{\"country\":\"USA\",\"Current Time\" :\"$current_time\"}" ] 
+    echo "$kafkaMessage" 
+    echo "{\"country\":\"USA\",\"Current Time\" :\"$current_time\"}"
+
+    if [ "$kafkaMessage" == "{\"country\":\"USA\",\"Current Time\" :\"$current_time\"}" ] 
         then 
-            echo "PASS"
-            
+            echo "PASS"   
         else
             echo "FAIL"
-            
     fi
 }
