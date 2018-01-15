@@ -9,18 +9,19 @@ function testcase1 {
     bin/zookeeper-server-start.sh config/zookeeper.properties &
     pId=$!
     #echo "$pId"
-    sleep 40
+    sleep 20
 
     bin/kafka-server-start.sh config/server.properties &
     pId1=$!
     #echo "$pId"
-    sleep 40
+    sleep 20
 
     bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic publishpet &
     pId2=$!
-    sleep 30
-
+    sleep 20
+    echo "123"
     popd
+    echo "456"
     ./kafkatrigger-to-kafkapublisher &
     pId4=$!
     sleep 30
@@ -34,7 +35,7 @@ function testcase1 {
     #bin/kafka-console-producer.sh --broker-list localhost:9092 --topic syslog   --property "parse.key=true"  --property "key.separator=:"  key1:USA &
     pId3=$!
 
-    sleep 30
+    sleep 40
     
     var="$(bin/kafka-console-consumer.sh --topic subscribepet --bootstrap-server localhost:9092 --timeout-ms 9000 --consumer.config $GOPATH/kafka/config/consumer.properties)"
     
@@ -43,7 +44,7 @@ function testcase1 {
     #pId5=$!
     #sleep 10
     #echo VAR=$var
-    #sleep 10
+    sleep 10
     echo "$var"
     kill -SIGINT $pId1
     kill -SIGINT $pId
