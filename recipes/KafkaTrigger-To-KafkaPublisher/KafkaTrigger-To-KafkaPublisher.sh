@@ -43,7 +43,7 @@ function testcase1 {
     #pId5=$!
     #sleep 10
     #echo VAR=$var
-    sleep 10
+    sleep 100
     echo "$var"
     kill -SIGINT $pId1
     kill -SIGINT $pId
