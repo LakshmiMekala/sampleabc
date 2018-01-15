@@ -39,7 +39,7 @@ function testcase1 {
 
     sleep 10
     
-    kafkaMessage="$(bin/kafka-console-consumer.sh --topic subscribepet --bootstrap-server localhost:9092 --timeout-ms 9000 --consumer.config /home/ramesh/Downloads/abc/kafka/config/consumer.properties)"
+    kafkaMessage="$(bin/kafka-console-consumer.sh --topic subscribepet --bootstrap-server localhost:9092 --timeout-ms 9000 --consumer.config $GOPATH/kafka/config/consumer.properties)"
     
 	echo "kafka message value : [$kafkaMessage]"
 	
