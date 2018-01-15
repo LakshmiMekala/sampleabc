@@ -9,7 +9,7 @@ function testcase1 {
 ./mqtt-gateway &
 pId=$!
 echo $PWD
-mosquitto_sub -t "abc123"
+mosquitto_sub -t "abc123" &
 #value="$(mosquitto_sub -t "put")"
 pId1=$!
 #echo "$pId"
