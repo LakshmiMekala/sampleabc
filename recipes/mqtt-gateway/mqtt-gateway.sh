@@ -15,15 +15,15 @@ mosquitto_pub -m "{\"id\":1,\"name\":\"SPARROW\",\"photoUrls\":[],\"tags\":[]}" 
 sleep 5
 mosquitto_pub -m "{\"pathParams\":{\"petId\":\"1\"},\"replyTo\":\"abc123\"}" -t "get"
 sleep 5
-var=$(cat /tmp/test.log)
-echo $var
+
+
 
 #killing process
 kill -9 $pId
 kill -9 $pId1
-actualValue="photoUrls"
-echo $actualValue
-if [ "$var" = *"$actualValue"* ] 
+var="photoUrls"
+echo $var
+if [[ "cat /tmp/test.log | grep $var" == *"$var"* ]] 
         then 
             echo "PASS"
             

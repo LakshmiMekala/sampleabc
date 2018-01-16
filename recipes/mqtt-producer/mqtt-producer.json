@@ -1,7 +1,7 @@
 {
   "mashling_schema": "0.2",
   "gateway": {
-    "name": "demoMQTTProducer1",
+    "name": "demoMQTTProducer",
     "version": "1.0.0",
     "display_name":"MQTT Producer",
 		"display_image":"displayImage.svg",

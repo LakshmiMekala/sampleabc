@@ -12,7 +12,7 @@ echo "$pId"
 #starting mosquitto_sub in background and copying logs into temp file
 mosquitto_sub -t "abc123" > /tmp/test.log & pId1=$!
 sleep 5
-curl -d "{\"message\": \"hello world\"}" http://localhost:9096/test
+curl -d "{\"message\": \"hello-world\"}" http://localhost:9096/test
 sleep 5
 var=$(cat /tmp/test.log)
 echo $var
@@ -20,9 +20,8 @@ echo $var
 #killing process
 kill -9 $pId
 kill -9 $pId1
-actualValue="hello world"
-echo $actualValue
-if [ "$var" == *"$actualValue"* ] 
+
+if [[ "$var" == "{\"message\":\"hello-world\"}" ]]
         then 
             echo "PASS"
             
