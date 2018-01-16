@@ -21,7 +21,7 @@ echo $var
 #killing process
 kill -9 $pId
 kill -9 $pId1
-actualValue="{\"category\":{\"id\":1,\"name\":\"string\"},\"id\":1,\"name\":\"doggie\",\"photoUrls\":[\"string\"],\"status\":\"available\",\"tags\":[{\"id\":1,\"name\":\"string\"}]}"
+actualValue="{\"category\":{\"id\":1,\"name\":\"string\"},\"id\":1,\"name\":\"doggie2\",\"photoUrls\":[\"string\"],\"status\":\"available\",\"tags\":[{\"id\":0,\"name\":\"string\"}]}"
 echo $actualValue
 if [ "$var" == "$actualValue" ] 
         then 
