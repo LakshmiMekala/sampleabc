@@ -32,15 +32,13 @@ function testcase1 {
 
     cd $GOPATH/kafka
     current_time=$(date "+%Y.%m.%d-%H.%M.%S")
-    echo "{\"country\":\"USA\",\"Current Time\" :\"$current_time\"}" | bin/kafka-console-producer.sh --broker-list localhost:9092 --topic publishpet &
-    #bin/kafka-console-producer.sh --broker-list localhost:9092 --topic syslog   --property "parse.key=true"  --property "key.separator=:"  key1:USA &
-    pId3=$!
+    echo "{\"country\":\"USA\",\"Current Time\" :\"$current_time\"}" | bin/kafka-console-producer.sh --broker-list localhost:9092 --topic publishpet &  pId3=$!
     
     echo "kafka pid3 : [$pId3]"
 
-    sleep 30
+    sleep 2
     
-    kafkaMessage="$(bin/kafka-console-consumer.sh --topic subscribepet --bootstrap-server localhost:9092 --timeout-ms 30000 --consumer.config $GOPATH/kafka/config/consumer.properties)"
+    kafkaMessage="$(bin/kafka-console-consumer.sh --topic subscribepet --bootstrap-server localhost:9092 --timeout-ms 10000 --consumer.config $GOPATH/kafka/config/consumer.properties)"
     
 	echo "kafka message value : [$kafkaMessage]"
 	
