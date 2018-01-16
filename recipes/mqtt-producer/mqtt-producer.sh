@@ -10,7 +10,7 @@ function testcase1 {
 pId=$!
 echo "$pId"
 #starting mosquitto_sub in background and copying logs into temp file
-mosquitto_sub -t "abc123" > /tmp/test.log & pId1=$!
+mosquitto_sub -t "test" > /tmp/test.log & pId1=$!
 sleep 5
 curl -d "{\"message\": \"hello-world\"}" http://localhost:9096/test
 sleep 5
