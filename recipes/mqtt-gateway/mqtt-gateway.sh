@@ -21,9 +21,9 @@ echo $var
 #killing process
 kill -9 $pId
 kill -9 $pId1
-actualValue="{\"category\":{\"id\":1,\"name\":\"string\"},\"id\":1,\"name\":\"doggie2\",\"photoUrls\":[\"string\"],\"status\":\"available\",\"tags\":[{\"id\":0,\"name\":\"string\"}]}"
+actualValue="photoUrls"
 echo $actualValue
-if [ "$var" == "$actualValue" ] 
+if [ "$var" = *"$actualValue"* ] 
         then 
             echo "PASS"
             

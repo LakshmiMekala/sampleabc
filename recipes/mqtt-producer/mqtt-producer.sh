@@ -20,9 +20,9 @@ echo $var
 #killing process
 kill -9 $pId
 kill -9 $pId1
-actualValue="{\"message\":\"hello world\"}"
+actualValue="hello world"
 echo $actualValue
-if [ "$var" == "$actualValue" ] 
+if [ "$var" == *"$actualValue"* ] 
         then 
             echo "PASS"
             
