@@ -6,8 +6,16 @@
       "description":"Mashling gateway recipes from TIBCOSoftware Engineering",
       "publish":[        
         {
-          "recipe":"rest-conditional-gateway",
+          "recipe":"event-dispatcher-router-mashling",
+          "featured":true
+        },
+        {
+          "recipe":"rest-gateway-with-tracing",
           "featured":false
+        },
+        {
+          "recipe":"secure-rest-gateway",
+          "featured":true
         },
         {
           "recipe":"mqtt-gateway",
@@ -15,6 +23,10 @@
         },
         {
           "recipe":"KafkaTrigger-To-KafkaPublisher",
+          "featured":false
+        },        
+        {
+          "recipe":"tunable-rest-gateway",
           "featured":false
         }
       ]
