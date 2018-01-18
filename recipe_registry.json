@@ -24,6 +24,10 @@
         {
           "recipe":"KafkaTrigger-To-KafkaPublisher",
           "featured":false
+        },
+        {
+          "recipe":"mqtt-producer",
+          "featured":false
         },        
         {
           "recipe":"tunable-rest-gateway",
