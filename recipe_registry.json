@@ -18,6 +18,10 @@
           "featured":false
         },
         {
+          "recipe":"KafkaTrigger-To-KafkaPublisher",
+          "featured":false
+        },
+        {
           "recipe":"mqtt-lambda-tci",
           "featured":true
         },
