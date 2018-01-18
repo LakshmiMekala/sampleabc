@@ -52,8 +52,7 @@
       ]
     },
     {
-      "provider":"TIBCOSoftware Services INDIA LTD",      
-      "url": "https://github.com/LakshmiMekala/recipesamples",
+      "provider":"TIBCOSoftware Services INDIA LTD",
       "description":"Mashling gateway recipes from TIBCO Services",
       "publish":[
       ]
