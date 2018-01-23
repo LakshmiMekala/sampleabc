@@ -8,17 +8,17 @@ function testcase1 {
 
     pushd $GOPATH/kafka
     # starting zookeeper in background
-    bin/zookeeper-server-start.bat config/zookeeper.properties > /tmp/kafka.log &
+    bin/zookeeper-server-start.sh config/zookeeper.properties > /tmp/kafka.log &
     pId=$!
     sleep 10
 
     # starting kafka server in background
-    bin/kafka-server-start.bat config/server.properties > /tmp/kafka.log &
+    bin/kafka-server-start.sh config/server.properties > /tmp/kafka.log &
     pId1=$!
     sleep 10
 
     # creating kafka topic
-    bin/kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic users &
+    bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic users &
     pId2=$!
     sleep 10
 
@@ -34,7 +34,7 @@ function testcase1 {
 
     #passing message from kafka producer
     output="{\"id\":15,\"country\":\"USA\",\"category\":{\"id\":0,\"name\":\"string\"},\"name\":\"doggie\",\"photoUrls\":[\"string\"],\"tags\":[{\"id\":0,\"name\":\"string\"}],\"status\":\"available\"}"
-	echo "$output" | bin/kafka-console-producer.bat --broker-list localhost:9092 --topic users &  pId3=$!    
+	echo "$output" | bin/kafka-console-producer.sh --broker-list localhost:9092 --topic users &  pId3=$!    
     sleep 2
 	
 	

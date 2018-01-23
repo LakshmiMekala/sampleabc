@@ -8,12 +8,12 @@ function testcase1 {
 
     pushd $GOPATH/kafka
     # starting zookeeper in background
-    bin/zookeeper-server-start.bat config/zookeeper.properties > /tmp/kafka.log &
+    bin/zookeeper-server-start.sh config/zookeeper.properties > /tmp/kafka.log &
     pId=$!
     sleep 10
 
     # starting kafka server in background
-    bin/kafka-server-start.bat config/server.properties > /tmp/kafka.log &
+    bin/kafka-server-start.sh config/server.properties > /tmp/kafka.log &
     pId1=$!
     sleep 10   
     popd
@@ -27,7 +27,7 @@ function testcase1 {
 	
 	curl -X PUT "http://localhost:9096/petEvent" -H "accept: application/xml" -H "Content-Type: application/json" -d '{"category": {"id": 16,"name": "Animals"},"id": 16,"name": "SPARROW","photoUrls": ["string"],"status": "sold","tags": [{	"id": 0,"name": "string"}]}'	 
 	
-    bin/kafka-console-consumer.bat --topic syslog --bootstrap-server localhost:9092 --from-beginning  1> /tmp/tmp.log 2>&1 & pId4=$!  
+    bin/kafka-console-consumer.sh --topic syslog --bootstrap-server localhost:9092 --from-beginning  1> /tmp/tmp.log 2>&1 & pId4=$!  
     sleep 20
 	if [[ "echo $(cat /tmp/tmp.log)" =~ '{"category":{"id":16,"name":"Animals"},"id":16,"name":"SPARROW","photoUrls":["string"],"status":"sold","tags":[{"id":0,"name":"string"}]}' ]] && [[ "echo $(cat /tmp/output.log)" =~ '{"category":{"id":16,"name":"Animals"},"id":16,"name":"SPARROW","photoUrls":["string"],"status":"sold","tags":[{"id":0,"name":"string"}]}' ]] ;
         then 
