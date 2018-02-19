@@ -1,11 +1,11 @@
 {
   "mashling_schema": "0.2",
   "gateway": {
-    "name": "mqtt-gateway",
+    "name": "demoRestGw",
     "version": "1.0.0",
-    "display_name": "Content-based MQTT and HTTP Router",
-    "display_image": "displayImage.svg",
-    "description": "A conditional MQTT and HTTP router that routes requests based on content",
+    "display_name":"Content-based HTTP Router",
+    "display_image":"displayImage.svg",
+    "description": "A conditional HTTP router that routes requests based on content",
     "configurations": [
       {
         "name": "restConfig",
@@ -14,41 +14,9 @@
         "settings": {
           "port": "9096"
         }
-      },
-      {
-        "name": "mqttConfig",
-        "type": "github.com/TIBCOSoftware/mashling/ext/flogo/trigger/mqtt",
-        "description": "Configuration for mqtt",
-        "settings": {
-          "broker": "tcp://localhost:1883",
-          "id": "flogo",
-          "user": "",
-          "password": "",
-          "store": "",
-          "qos": "0",
-          "cleansess": "false"
-        }
       }
     ],
     "triggers": [
-      {
-        "name": "get_mqtt",
-        "type": "github.com/TIBCOSoftware/mashling/ext/flogo/trigger/mqtt",
-        "settings": {
-          "config": "${configurations.mqttConfig}",
-          "topic": "get",
-          "optimize": "true"
-        }
-      },
-      {
-        "name": "put_mqtt",
-        "type": "github.com/TIBCOSoftware/mashling/ext/flogo/trigger/mqtt",
-        "settings": {
-          "config": "${configurations.mqttConfig}",
-          "topic": "put",
-          "optimize": "true"
-        }
-      },
       {
         "name": "animals_rest_trigger",
         "description": "Animals rest trigger - PUT animal details",
@@ -57,7 +25,7 @@
           "config": "${configurations.restConfig}",
           "method": "PUT",
           "path": "/pets",
-          "optimize": "true"
+          "optimize":"true"
         }
       },
       {
@@ -68,7 +36,7 @@
           "config": "${configurations.restConfig}",
           "method": "GET",
           "path": "/pets/{petId}",
-          "optimize": "true"
+          "optimize":"true"
         }
       }
     ],
@@ -96,10 +64,7 @@
     ],
     "event_links": [
       {
-        "triggers": [
-          "animals_rest_trigger",
-          "put_mqtt"
-        ],
+        "triggers": ["animals_rest_trigger"],
         "dispatches": [
           {
             "if": "${trigger.content.name in (ELEPHANT,CAT)}",
@@ -115,10 +80,7 @@
         ]
       },
       {
-        "triggers": [
-          "get_animals_rest_trigger",
-          "get_mqtt"
-        ],
+        "triggers": ["get_animals_rest_trigger"],
         "dispatches": [
           {
             "handler": "animals_get_handler"

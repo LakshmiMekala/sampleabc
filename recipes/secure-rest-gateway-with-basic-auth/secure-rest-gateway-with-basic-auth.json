@@ -1,7 +1,7 @@
 {
   "mashling_schema": "0.2",
   "gateway": {
-    "name": "gwWithBasicAuth1",
+    "name": "gwWithBasicAuth",
     "version": "1.0.0",
     "display_name":"Rest Conditional Gateway",
     "description": "This is the rest based microgateway app",
