@@ -17,10 +17,6 @@
           "featured":true
         },
         {
-          "recipe":"publish-to-mashery",
-          "featured":true
-        },
-        {
           "recipe":"rest-conditional-gateway",
           "featured":false
         },
