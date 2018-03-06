@@ -19,7 +19,7 @@ function testcase1 {
     popd
 	
     #executing the gateway binary
-    ./resttrigger-to-kafkapublisher /tmp/output.log 2>&1 &  
+    ./resttrigger-to-kafkapublisher  1> /tmp/output.log 2>&1 &  
     pId3=$!
     sleep 20
 
@@ -45,5 +45,5 @@ function testcase1 {
     sleep 5
     kill -SIGINT $pId4
     rm -f /tmp/test.log /tmp/kafka.log
-	
+	cd C:/Users/lmekala/Desktop/Info/mashling-recipes/recipes/RestTrigger-To-KafkaPublisher/gw/bin
 }
