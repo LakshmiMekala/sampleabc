@@ -19,7 +19,7 @@ function testcase1 {
     popd
 	
     #executing the gateway binary
-    ./resttrigger-to-kafkapublisher &  
+    ./resttrigger-to-kafkapublisher /tmp/output.log 2>&1 &  
     pId3=$!
     sleep 20
 
