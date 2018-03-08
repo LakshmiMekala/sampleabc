@@ -8,110 +8,87 @@
   revision = "84403ded544328c99be3472727667179eef23a91"
 
 [[projects]]
-  branch = "master"
   name = "github.com/Shopify/sarama"
   packages = ["."]
-  revision = "eae91468c24263f06ae73dce45eb26252c73b1d6"
+  revision = "240fd146ce68bcafb034cc5dc977229ffbafa8ea"
+  version = "v1.14.0"
 
 [[projects]]
-  branch = "master"
   name = "github.com/Sirupsen/logrus"
   packages = ["."]
-  revision = "f4ee69125072b22721efbe639bd0da9c9d19b8cc"
+  revision = "89742aefa4b206dcf400792f3bd35b542998eb3b"
 
 [[projects]]
-  branch = "master"
   name = "github.com/TIBCOSoftware/flogo-cli"
   packages = [
-    "config",
     "env",
     "util"
   ]
-  revision = "14872ccbb357378b90a1ec4ca08657979028ac32"
+  revision = "7db24e0eb12a6a9388f4c764d9895d4029d6421f"
+  version = "v0.5.0"
 
 [[projects]]
   name = "github.com/TIBCOSoftware/flogo-contrib"
   packages = [
     "action/flow",
     "action/flow/definition",
+    "action/flow/extension",
     "action/flow/instance",
-    "action/flow/linker",
     "action/flow/model",
-    "action/flow/model/simple",
+    "action/flow/provider",
+    "action/flow/script/fggos",
     "action/flow/service",
     "action/flow/support",
     "action/flow/tester",
-    "action/flow/util",
     "activity/log",
     "activity/reply",
     "activity/rest",
     "model/simple",
-    "model/simple/behaviors",
     "trigger/rest/cors"
   ]
-  revision = "a401edba2327d3572d54146892a37faffb306b90"
-  version = "v0.5.2-rc1"
+  revision = "bf071412b7a2eb0a59981c5d31f5efc5be60cd90"
 
 [[projects]]
-  branch = "master"
   name = "github.com/TIBCOSoftware/flogo-lib"
   packages = [
     "app",
-    "app/resource",
     "config",
     "core/action",
     "core/activity",
     "core/data",
     "core/mapper",
-    "core/mapper/exprmapper",
-    "core/mapper/exprmapper/expression",
-    "core/mapper/exprmapper/expression/direction",
-    "core/mapper/exprmapper/expression/expr",
-    "core/mapper/exprmapper/expression/function",
-    "core/mapper/exprmapper/expression/gocc/errors",
-    "core/mapper/exprmapper/expression/gocc/lexer",
-    "core/mapper/exprmapper/expression/gocc/parser",
-    "core/mapper/exprmapper/expression/gocc/token",
-    "core/mapper/exprmapper/funcexprtype",
-    "core/mapper/exprmapper/json",
-    "core/mapper/exprmapper/json/field",
-    "core/mapper/exprmapper/ref",
+    "core/property",
     "core/trigger",
     "engine",
     "engine/runner",
     "logger",
-    "util",
-    "util/managed"
+    "util"
   ]
-  revision = "f3988b95d914f98704fbeb9bb1c845ea21153b56"
+  revision = "7e77da4e61670433757713ac04518d817c9b99af"
 
 [[projects]]
-  branch = "master"
   name = "github.com/TIBCOSoftware/mashling"
   packages = [
     "ext/flogo/trigger/gorillamuxtrigger",
     "lib/conditions",
     "lib/util"
   ]
-  revision = "57d50af549ab6d4305df9adde300747ae827e6a8"
+  revision = "cfb8798e2b1ad7ace187059b92723f285267a115"
 
 [[projects]]
-  branch = "master"
   name = "github.com/apache/thrift"
   packages = ["lib/go/thrift"]
-  revision = "b4f22ff30119ea5cadf9b16e97afdcabefe06696"
+  revision = "95d5fb3a1e38125b9eabcbe9cda1a6c7bbe3e93d"
 
 [[projects]]
-  branch = "master"
   name = "github.com/davecgh/go-spew"
   packages = ["spew"]
-  revision = "8991bc29aa16c548c550c7ff78260e27b9ab7c73"
+  revision = "ecdeabc65495df2dec95d7c4a4c3e021903035e5"
 
 [[projects]]
-  branch = "master"
   name = "github.com/eapache/go-resiliency"
   packages = ["breaker"]
-  revision = "ef9aaa7ea8bd2448429af1a77cf41b2b3b34bdd6"
+  revision = "b1fe83b5b03f624450823b751b662259ffc6af70"
 
 [[projects]]
   branch = "master"
@@ -120,10 +97,10 @@
   revision = "bb955e01b9346ac19dc29eb16586c90ded99a98c"
 
 [[projects]]
-  branch = "master"
   name = "github.com/eapache/queue"
   packages = ["."]
-  revision = "093482f3f8ce946c05bcba64badd2c82369e084d"
+  revision = "44cc805cf13205b55f69e14bcb69867d1ae92f98"
+  version = "v1.1.0"
 
 [[projects]]
   name = "github.com/go-logfmt/logfmt"
@@ -132,16 +109,14 @@
   version = "v0.3.0"
 
 [[projects]]
-  branch = "master"
   name = "github.com/gogo/protobuf"
   packages = [
     "io",
     "proto"
   ]
-  revision = "d5bc08a2c4c572e9bcff820aa125fe38ac3a3a42"
+  revision = "616a82ed12d78d24d4839363e8f3c5d3f20627cf"
 
 [[projects]]
-  branch = "master"
   name = "github.com/golang/protobuf"
   packages = [
     "proto",
@@ -151,7 +126,7 @@
     "ptypes/duration",
     "ptypes/timestamp"
   ]
-  revision = "bbd03ef6da3a115852eaf24c8a1c46aeb39aa175"
+  revision = "1e59b77b52bf8e4b449a57e6f79f21226d571845"
 
 [[projects]]
   branch = "master"
@@ -166,16 +141,21 @@
   version = "v1.1"
 
 [[projects]]
-  branch = "master"
   name = "github.com/gorilla/mux"
   packages = ["."]
-  revision = "07ba1fd60e210dc5cc6f86ec25dc9ecc7c95c295"
+  revision = "2d5fef06b891c971b14aa6f71ca5ab6c03a36e0e"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/japm/goScript"
+  packages = ["."]
+  revision = "caab90145b05376536bbab332312f4812123e197"
 
 [[projects]]
   branch = "master"
   name = "github.com/julienschmidt/httprouter"
   packages = ["."]
-  revision = "d1898390779332322e6b5ca5011da4bf249bb056"
+  revision = "e1b9828bc9e5904baec057a154c09ca40fe7fae0"
 
 [[projects]]
   branch = "master"
@@ -202,23 +182,22 @@
   revision = "a52f2342449246d5bcc273e65cbdcfa5f7d6c63c"
 
 [[projects]]
-  branch = "master"
   name = "github.com/opentracing/basictracer-go"
   packages = [
     ".",
     "wire"
   ]
-  revision = "4f57fa6c2e72e6f3434484d30d8813bf89f657ae"
+  revision = "1b32af207119a14b1b231d451df3ed04a72efebf"
+  version = "v1.0.0"
 
 [[projects]]
-  branch = "master"
   name = "github.com/opentracing/opentracing-go"
   packages = [
     ".",
     "ext",
     "log"
   ]
-  revision = "3999fca714c888484b78cb78d68cd49afc9eca7d"
+  revision = "1361b9cd60be79c4c3a7fa9841b3c132e40066a7"
 
 [[projects]]
   name = "github.com/openzipkin/zipkin-go-opentracing"
@@ -230,14 +209,14 @@
     "types",
     "wire"
   ]
-  revision = "4c9fbcbd6d73a644fd17214fe475296780c68fb5"
-  version = "v0.3.3"
+  revision = "45e90b00710a4c34a1a7d8a78d90f9b010b0bd4d"
+  version = "v0.3.2"
 
 [[projects]]
-  branch = "master"
   name = "github.com/pierrec/lz4"
   packages = ["."]
-  revision = "ed8d4cc3b461464e69798080a0092bd028910298"
+  revision = "08c27939df1bd95e881e2c2367a749964ad1fceb"
+  version = "v1.0.1"
 
 [[projects]]
   branch = "master"
@@ -246,25 +225,21 @@
   revision = "a0006b13c722f7f12368c00a3d3c2ae8a999a0c6"
 
 [[projects]]
-  branch = "master"
   name = "github.com/pkg/errors"
   packages = ["."]
-  revision = "30136e27e2ac8d167177e8a583aa4c3fea5be833"
+  revision = "f15c970de5b76fac0b59abb32d62c17cc7bed265"
 
 [[projects]]
-  branch = "master"
   name = "github.com/rcrowley/go-metrics"
   packages = ["."]
-  revision = "8732c616f52954686704c8645fe1a9d59e9df7c1"
+  revision = "1f30fe9094a513ce4c700b9a54458bbb0c96996c"
 
 [[projects]]
-  branch = "master"
   name = "golang.org/x/crypto"
   packages = ["ssh/terminal"]
-  revision = "85f98707c97e11569271e4d9b3d397e079c4f4d0"
+  revision = "9f005a07e0d31d45e6656d241bb5c0f2efd4bc94"
 
 [[projects]]
-  branch = "master"
   name = "golang.org/x/net"
   packages = [
     "context",
@@ -275,26 +250,23 @@
     "lex/httplex",
     "trace"
   ]
-  revision = "07e8617a6db2368fa55d4616f371ee1b1403c817"
+  revision = "9dfe39835686865bff950a07b394c12a98ddc811"
 
 [[projects]]
-  branch = "master"
   name = "golang.org/x/sys"
   packages = [
     "unix",
     "windows"
   ]
-  revision = "349b81fb5c64ec1734eb6ee148df25459ea48517"
+  revision = "0dd5e194bbf5eb84a39666eb4c98a4d007e4203a"
 
 [[projects]]
-  branch = "master"
   name = "golang.org/x/text"
   packages = [
     "collate",
     "collate/build",
     "internal/colltab",
     "internal/gen",
-    "internal/language",
     "internal/tag",
     "internal/triegen",
     "internal/ucd",
@@ -306,30 +278,26 @@
     "unicode/norm",
     "unicode/rangetable"
   ]
-  revision = "b7ef84aaf62aa3e70962625c80a571ae7c17cb40"
+  revision = "88f656faf3f37f690df1a32515b479415e1a6769"
 
 [[projects]]
-  branch = "master"
   name = "google.golang.org/genproto"
   packages = [
     "googleapis/api/annotations",
     "googleapis/rpc/status"
   ]
-  revision = "df60624c1e9b9d2973e889c7a1cff73155da81c4"
+  revision = "11c7f9e547da6db876260ce49ea7536985904c9b"
 
 [[projects]]
-  branch = "master"
   name = "google.golang.org/grpc"
   packages = [
     ".",
     "balancer",
-    "balancer/base",
     "balancer/roundrobin",
     "codes",
     "connectivity",
     "credentials",
     "encoding",
-    "encoding/proto",
     "grpclb/grpc_lb_v1/messages",
     "grpclog",
     "internal",
@@ -345,21 +313,20 @@
     "tap",
     "transport"
   ]
-  revision = "0843fd0ee0d3e07dc0f73ba681ed50433ce3eb76"
+  revision = "d6cc72862b0b65125e2dbb02e207bacfad792e69"
 
 [[projects]]
-  branch = "master"
   name = "sourcegraph.com/sourcegraph/appdash"
   packages = [
     ".",
     "internal/wire",
     "opentracing"
   ]
-  revision = "2cc67fd647551af94593ecaaa89fe4e5b2940a3e"
+  revision = "f9a4336c02542ebbfa01c37949bd7152fb0f659c"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "84e2afda2ac1b1903b2cf7ac901ac082e680ca5bcc65aabdada6e9bb2e9f6bcc"
+  inputs-digest = "374f18c543cca478715140ef6ff36ac1bec1eb1544ec336b94ee07ea659d331f"
   solver-name = "gps-cdcl"
   solver-version = 1
