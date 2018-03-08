@@ -25,6 +25,18 @@
 #   unused-packages = true
 
 
+[[constraint]]
+  name = "github.com/TIBCOSoftware/flogo-contrib"
+  version = "0.5.2-rc1"
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/TIBCOSoftware/flogo-lib"
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/TIBCOSoftware/mashling"
+
 [prune]
   go-tests = true
   unused-packages = true
