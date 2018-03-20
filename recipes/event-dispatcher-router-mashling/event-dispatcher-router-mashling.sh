@@ -8,12 +8,12 @@ function testcase1 {
 
     pushd $GOPATH/kafka
     # starting zookeeper in background
-    bin/zookeeper-server-start.sh config/zookeeper.properties > /tmp/kafka.log &
+    bin/zookeeper-server-start.sh config/zookeeper.properties &
     pId=$!
     sleep 10
 
     # starting kafka server in background
-    bin/kafka-server-start.sh config/server.properties > /tmp/kafka.log &
+    bin/kafka-server-start.sh config/server.properties &
     pId1=$!
     sleep 10
 
@@ -25,8 +25,10 @@ function testcase1 {
     popd
 	
     #executing the gateway binary
+    echo "%%%%%%%%%%%%%%%%%%%"
     $GOPATH/src/github.com/TIBCOSoftware/mashling-gateway/bin/mashling-gateway -config event-dispatcher-router-mashling.json > /tmp/test.log 2>&1 &
     pId4=$!
+    echo "%%%%%%%%%%%%%%%%%%%"
     sleep 20
 
     pushd $GOPATH/kafka

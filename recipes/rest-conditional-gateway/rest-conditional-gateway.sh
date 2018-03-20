@@ -19,6 +19,7 @@ fi
 function testcase2 {
 $GOPATH/src/github.com/TIBCOSoftware/mashling-gateway/bin/mashling-gateway -config rest-conditional-gateway.json &
 pId=$!
+sleep 100
 response=$(curl -X PUT "http://localhost:9096/pets" -H "accept: application/xml" -H "Content-Type: application/json" -d '{"category":{"id":16,"name":"Animals"},"id":16,"name":"SPARROW","photoUrls":["string"],"status":"sold","tags":[{"id":0,"name":"string"}]}' --write-out '%{http_code}' --silent --output /dev/null)
 kill -9 $pId
 if [ $response -eq 200  ] 
