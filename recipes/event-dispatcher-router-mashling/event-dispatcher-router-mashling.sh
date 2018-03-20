@@ -7,25 +7,25 @@ function get_test_cases {
 function testcase1 {
 
     pushd $GOPATH/kafka
-    # starting zookeeper in background
+    echo starting zookeeper in background
     bin/zookeeper-server-start.sh config/zookeeper.properties > /tmp/kafka.log &
     pId=$!
     sleep 10
 
-    # starting kafka server in background
+    echo starting kafka server in background
     bin/kafka-server-start.sh config/server.properties > /tmp/kafka.log &
     pId1=$!
     sleep 10
 
-    # creating kafka topic
+    echo creating kafka topic
     bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic users &
     pId2=$!
     sleep 10
 
     popd
 	
-    #executing the gateway binary
-    $GOPATH/src/github.com/TIBCOSoftware/mashling-gateway/bin/mashling-gateway -config event-dispatcher-router-mashling 1> /tmp/test.log 2>&1 &
+    echo executing the gateway binary
+    $GOPATH/src/github.com/TIBCOSoftware/mashling-gateway/bin/mashling-gateway -config event-dispatcher-router-mashling.json > /tmp/test.log 2>&1 &
     pId4=$!
     sleep 20
 
