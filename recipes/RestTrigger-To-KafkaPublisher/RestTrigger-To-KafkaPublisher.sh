@@ -19,7 +19,7 @@ function testcase1 {
     popd
 	
     #executing the gateway binary
-    ./$GOPATH/src/github.com/TIBCOSoftware/mashling-gateway/bin/mashling-gateway -configresttrigger-to-kafkapublisher.json  1> /tmp/output.log 2>&1 &  
+    .$GOPATH/src/github.com/TIBCOSoftware/mashling-gateway/bin/mashling-gateway -configresttrigger-to-kafkapublisher.json  1> /tmp/output.log 2>&1 &  
     pId3=$!
     sleep 20
 
