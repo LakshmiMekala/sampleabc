@@ -32,7 +32,8 @@ EOL
 
 export BASIC_AUTH_FILE=$GOPATH/pswd.txt	
 
-$GOPATH/src/github.com/TIBCOSoftware/mashling-gateway/bin/mashling-gateway -config secure-rest-gateway-with-basic-auth.json &
+$GOPATH/src/github.com/TIBCOSoftware/mashling-gateway/bin/mashling-gateway -env-var-name foo:5VvmQnTXZ10wGZu_Gkjb8umfUPIOQTQ3p1YFadAWTl8=:6267beb3f851b7fee14011
+f6aa236556f35b186a6791b80b48341e990c367643  -config secure-rest-gateway-with-basic-auth.json &
 pId=$!
 response=$(curl --request GET http://foo:badpass@localhost:9096/pets/3 --write-out '%{http_code}' --silent --output /dev/null)
 kill -9 $pId
