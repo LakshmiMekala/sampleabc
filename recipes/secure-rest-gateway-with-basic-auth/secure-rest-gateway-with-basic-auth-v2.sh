@@ -12,8 +12,9 @@ tom:jerry
 EOL
 
 export BASIC_AUTH_FILE=$GOPATH/pswd.txt	
-./secure-rest-gateway-with-basic-auth &
+$GOPATH/src/github.com/TIBCOSoftware/mashling-gateway/bin/mashling-gateway -env-var-name foo:5VvmQnTXZ10wGZu_Gkjb8umfUPIOQTQ3p1YFadAWTl8=:6267beb3f851b7fee14011f6aa236556f35b186a6791b80b48341e990c367643 -config secure-rest-gateway-with-basic-auth.json &
 pId=$!
+sleep 15
 response=$(curl --request GET http://foo:bar@localhost:9096/pets/3 --write-out '%{http_code}' --silent --output /dev/null)
 kill -9 $pId
 if [ $response -eq 200  ] 
@@ -32,8 +33,9 @@ EOL
 
 export BASIC_AUTH_FILE=$GOPATH/pswd.txt	
 
-./secure-rest-gateway-with-basic-auth &
+$GOPATH/src/github.com/TIBCOSoftware/mashling-gateway/bin/mashling-gateway -env-var-name foo:5VvmQnTXZ10wGZu_Gkjb8umfUPIOQTQ3p1YFadAWTl8=:6267beb3f851b7fee14011f6aa236556f35b186a6791b80b48341e990c367643 -config secure-rest-gateway-with-basic-auth.json &
 pId=$!
+sleep 15
 response=$(curl --request GET http://foo:badpass@localhost:9096/pets/3 --write-out '%{http_code}' --silent --output /dev/null)
 kill -9 $pId
 if [ $response -eq 403  ] 
@@ -54,8 +56,9 @@ EOL
 
 export BASIC_AUTH_FILE=$GOPATH/pswd.txt	
 
-./secure-rest-gateway-with-basic-auth &
+$GOPATH/src/github.com/TIBCOSoftware/mashling-gateway/bin/mashling-gateway -env-var-name foo:15VvmQnTXZ10wGZu_Gkjb8umfUPIOQTQ3p1YFadAWTl8=:6267beb3f851b7fee14011f6aa236556f35b186a6791b80b48341e990c367643 -config secure-rest-gateway-with-basic-auth.json &
 pId=$!
+sleep 15
 response=$(curl --request GET http://tom:jerry@localhost:9096/pets/3 --write-out '%{http_code}' --silent --output /dev/null)
 kill -9 $pId
 if [ $response -eq 200  ] 

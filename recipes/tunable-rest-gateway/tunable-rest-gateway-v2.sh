@@ -6,8 +6,9 @@ function get_test_cases {
 }
 function testcase1 {
 		export API_CONTEXT=PETS
-./tunable-rest-gateway &
+$GOPATH/src/github.com/TIBCOSoftware/mashling-gateway/bin/mashling-gateway -config tunable-rest-gateway.json &
 pId=$!
+sleep 15;
 response=$(curl --request GET http://localhost:9096/id/17 --write-out '%{http_code}' --silent --output /dev/null)
 kill -9 $pId
 if [ $response -eq 200  ] 
@@ -19,7 +20,7 @@ fi
 }
 function testcase2 {
 export API_CONTEXT=USERS
-./tunable-rest-gateway &
+$GOPATH/src/github.com/TIBCOSoftware/mashling-gateway/bin/mashling-gateway -config tunable-rest-gateway.json &
 pId=$!
 response=$(curl --request GET http://localhost:9096/id/17 --write-out '%{http_code}' --silent --output /dev/null)
 kill -9 $pId
