@@ -19,8 +19,8 @@ function testcase1 {
 	export ENDPOINT_URL=https://localhost:8080
 	echo $ENDPOINT_URL $SERVER_CERT $SERVER_KEY $TRUST_STORE
 	
-	chmod 777 secure-rest-gateway
-	.$GOPATH/src/github.com/TIBCOSoftware/mashling-gateway/bin/mashling-gateway -config secure-rest-gateway.json 1> /tmp/gw.log 2>&1 &  pId2=$!
+	# chmod 777 secure-rest-gateway
+	$GOPATH/src/github.com/TIBCOSoftware/mashling-gateway/bin/mashling-gateway -config secure-rest-gateway.json 1> /tmp/gw.log 2>&1 &  pId2=$!
 	echo $pId2
 	
 	go get -u github.com/levigross/go-mutual-tls/...
