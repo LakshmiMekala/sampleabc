@@ -23,7 +23,7 @@ kill -9 $pId
 kill -9 $pId1
 var="photoUrls"
 echo $var
-if [[ "cat /tmp/test.log | grep $var" == *"$var"* ]] 
+if [[ "cat /tmp/test.log | grep $var" == *"$var"* ]] && [[ "echo $(cat /tmp/mqtt.log)" =~ "Completed" ]]
         then 
             echo "PASS"
             
