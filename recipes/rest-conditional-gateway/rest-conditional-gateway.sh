@@ -8,7 +8,7 @@ function testcase1 {
 $GOPATH/src/github.com/TIBCOSoftware/mashling/bin/mashling-gateway -c rest-conditional-gateway.json > /tmp/rest1.log 2>&1 &
 pId=$!
 sleep 15
-response=$(curl --request GET http://localhost:9096/pets/2 --write-out '%{http_code}' --silent --output /dev/null)
+response=$(curl --request GET http://localhost:9096/pets/1 --write-out '%{http_code}' --silent --output /dev/null)
 kill -9 $pId
 if [ $response -eq 200  ] && [[ "echo $(cat /tmp/rest1.log)" =~ "Completed" ]]
     then 
