@@ -19,7 +19,8 @@
         },
         {
           "recipe":"mqtt-lambda-tci",
-          "featured":true
+          "featured":true,
+          "custom_gateway_required":true
         },
         {
           "recipe":"secure-rest-gateway",
@@ -43,7 +44,8 @@
         },        
         {
           "recipe":"tunable-rest-gateway",
-          "featured":false
+          "featured":false,
+          "custom_gateway_required":true
         }
       ]
     },
