@@ -10,7 +10,8 @@
         },
         {
           "recipe":"rest-conditional-gateway",
-          "featured":false
+          "featured":false,
+          "custom-gateway-reqruied":true
         },
         {
           "recipe":"rest-gateway-with-tracing",
