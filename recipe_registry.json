@@ -17,14 +17,6 @@
           "featured":false
         },
         {
-          "recipe":"grpc-to-grpc-gateway",
-          "featured":true
-        },
-        {
-          "recipe":"grpc-to-rest-gateway",
-          "featured":true
-        },
-        {
           "recipe":"proxy-websocket",
           "featured":false
         },
@@ -35,6 +27,14 @@
         {
           "recipe":"sqld-gateway",
           "featured":false
+        },
+        {
+          "recipe":"grpc-to-grpc-gateway",
+          "featured":true
+        },
+        {
+          "recipe":"grpc-to-rest-gateway",
+          "featured":true
         }
       ]
     },
