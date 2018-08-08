@@ -21,7 +21,9 @@ if [[ "echo $(cat /tmp/websocket1.log)" =~ "Completed" ]]
         echo "FAIL"
 fi
 kill -9 $pId $pId1
-kill $(lsof -t -i:8080)
+var=$(ps --ppid $pId1)
+pId3=$(echo $var | awk '{print $5}')
+kill -9 $pId3
 }
 
 # Run maximum+1 clients
@@ -44,7 +46,9 @@ if [[ "echo $(cat /tmp/websocket2.log)" =~ "Completed" ]] && [[ "echo $(cat /tmp
 fi
 kill -9 $pId
 kill -SIGINT $pId2 $pId3
-kill $(lsof -t -i:8080)
+var=$(ps --ppid $pId1)
+pId7=$(echo $var | awk '{print $5}')
+kill -9 $pId7
 }
 
 # Run client without server
