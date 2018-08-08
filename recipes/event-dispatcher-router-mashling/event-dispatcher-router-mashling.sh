@@ -8,12 +8,12 @@ function testcase1 {
 
     pushd $GOPATH/kafka
     # starting zookeeper in background
-    bin/zookeeper-server-start.sh config/zookeeper.properties > /tmp/zookeeper.log 2>&1 &
+    bin/zookeeper-server-start.sh config/zookeeper.properties > /tmp/zookeeper.log &
     pId=$!
     sleep 10
 
     # starting kafka server in background
-    bin/kafka-server-start.sh config/server.properties > /tmp/kafka.log 2>&1 &
+    bin/kafka-server-start.sh config/server.properties > /tmp/kafka.log &
     pId1=$!
     sleep 10
 
@@ -33,8 +33,7 @@ function testcase1 {
     current_time=$(date "+%Y.%m.%d-%H.%M.%S")
 
     #passing message from kafka producer
-    # output="{\"id\":15,\"country\":\"USA\",\"category\":{\"id\":0,\"name\":\"string\"},\"name\":\"doggie\",\"photoUrls\":[\"string\"],\"tags\":[{\"id\":0,\"name\":\"string\"}],\"status\":\"available\"}"
-	echo {\"id\":15,\"country\":\"USA\",\"category\":{\"id\":0,\"name\":\"string\"},\"name\":\"doggie\",\"photoUrls\":[\"string\"],\"tags\":[{\"id\":0,\"name\":\"string\"}],\"status\":\"available\"} | bin/kafka-console-producer.sh --broker-list localhost:9092 --topic users &  pId3=$!    
+	echo "{\"id\":15,\"country\":\"USA\",\"category\":{\"id\":0,\"name\":\"string\"},\"name\":\"doggie\",\"photoUrls\":[\"string\"],\"tags\":[{\"id\":0,\"name\":\"string\"}],\"status\":\"available\"}" | bin/kafka-console-producer.sh --broker-list localhost:9092 --topic users &  pId3=$!    
     sleep 2
 	
 	
