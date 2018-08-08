@@ -20,7 +20,7 @@ if [[ "echo $(cat /tmp/websocket1.log)" =~ "Completed" ]]
     else
         echo "FAIL"
 fi
-kill -9 $pId $pId1
+kill -9 $pId
 var=$(ps --ppid $pId1)
 pId3=$(echo $var | awk '{print $5}')
 kill -9 $pId3
