@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function get_testcases {
+function get_test_cases {
     local my_list=( testcase1 )
     echo "${my_list[@]}"
 }
@@ -39,4 +39,5 @@ if [[ "echo $(cat /tmp/client.log)" =~ "res : pet:<id:2" ]] && [[ "echo $(cat /t
 fi        
 kill -9 $pId2
 kill -15 $pId $pId1
+mashling-cli grpc clean -p petstore.proto
 }

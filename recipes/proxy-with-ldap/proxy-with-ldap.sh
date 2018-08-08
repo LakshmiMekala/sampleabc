@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function get_testcases {
+function get_test_cases {
     local my_list=( testcase1 testcase2 )
     echo "${my_list[@]}"
 }

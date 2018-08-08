@@ -12,6 +12,7 @@ sleep 5
 go run main.go -server > /tmp/server.log 2>&1 & 
 pId1=$!
 go run main.go -client > /tmp/client.log 2>&1 
+sleep 20
 response=$(curl http://localhost:9096/test --upload-file anomaly-payload.json --write-out '%{http_code}' --silent --output /dev/null)
 echo $response
 if [ $response -eq 200 ] && [[ "echo $(cat /tmp/client.log)" =~ "number of anomalies 0" ]] 
