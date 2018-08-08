@@ -20,9 +20,9 @@ if [[ "echo $(cat /tmp/websocket1.log)" =~ "Completed" ]]
     else
         echo "FAIL"
 fi
-kill -9 $pId
+kill -9 $pId $pId1
+ps -a
 kill -SIGINT $pId2 
-kill -15 $pId1
 }
 
 # Run maximum+1 clients
@@ -42,9 +42,9 @@ if [[ "echo $(cat /tmp/websocket2.log)" =~ "Completed" ]] && [[ "echo $(cat /tmp
     else
         echo "FAIL"
 fi
-kill -9 $pId
+kill -9 $pId $pId1
+ps -a
 kill -SIGINT $pId2 $pId3 $pId4
-kill -15 $pId1
 }
 
 # Run client without server

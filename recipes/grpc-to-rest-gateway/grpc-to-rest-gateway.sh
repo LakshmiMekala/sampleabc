@@ -7,6 +7,10 @@ function get_test_cases {
 
 function testcase1 {
 go get -u github.com/golang/protobuf/protoc-gen-go
+apt-get install unzip > /tmp/log.log 2>&!
+wget https://github.com/google/protobuf/releases/download/v3.6.1/protoc-3.6.1-linux-x86_64.zip > /tmp/log.log 2>&!
+unzip protoc-3.6.1-linux-x86_64.zip
+export PATH=$PATH:/bin
 pushd $GOPATH/src/github.com/TIBCOSoftware/mashling
 git checkout feature-grpc-support
 go run build.go build
