@@ -8,7 +8,7 @@ function get_test_cases {
 }
 
 function init {
-    pushd src/github.com/TIBCOSoftware/mashling
+    pushd $GOPATH/src/github.com/TIBCOSoftware/mashling
     git checkout feature-grpc-support
     go run build.go build
     popd
@@ -31,7 +31,7 @@ function init {
 
 function clear {
     rm -rf mashilng-custom
-    pushd src/github.com/TIBCOSoftware/mashling
+    pushd $GOPATH/src/github.com/TIBCOSoftware/mashling
     git checkout master
     go run build.go build
     popd

@@ -1,12 +1,14 @@
 #!/bin/bash
 
 function get_test_cases {
+    init
     local my_list=( testcase1 )
     echo "${my_list[@]}"
+    clear
 }
 
 function init {
-    pushd src/github.com/TIBCOSoftware/mashling
+    pushd $GOPATH/src/github.com/TIBCOSoftware/mashling
     git checkout feature-grpc-support
     go run build.go build
     popd
@@ -34,16 +36,16 @@ function init {
 
 function clear {
     rm -rf mashilng-custom
-    pushd src/github.com/TIBCOSoftware/mashling
+    pushd $GOPATH/src/github.com/TIBCOSoftware/mashling
     git checkout master
     go run build.go build
     popd
 }
 
 function testcase1 {
-samplegrpcserver -port 9000 &
+./samplegrpcserver -port 9000 &
 pId=$!
-samplegrpcserver -port 9001 &
+./samplegrpcserver -port 9001 &
 pId1=$!
 ./mashling-gateway -c grpc-to-grpc-gateway.json > /tmp/grpc.log 2>&1 &
 pId2=$!
