@@ -5,37 +5,42 @@ function get_test_cases {
     echo "${my_list[@]}"
 }
 
-function testcase1 {
-go get -u github.com/golang/protobuf/protoc-gen-go
-apt-get install unzip > /tmp/log.log 2>&1
-PROTOC_ZIP=protoc-3.3.0-linux-x86_64.zip
-curl -OL https://github.com/google/protobuf/releases/download/v3.3.0/$PROTOC_ZIP
-sudo unzip -o $PROTOC_ZIP -d /usr/local bin/protoc
-rm -f $PROTOC_ZIP
-pushd $GOPATH/src/github.com/TIBCOSoftware/mashling
-git checkout feature-grpc-support
-go run build.go build
-popd
-mashling-cli grpc generate -p petstore.proto
-pushd $GOPATH/src/github.com/TIBCOSoftware/mashling-recipes/recipes/grpc-to-grpc-gateway
-cd samplegrpcserver
-go install ./...
-cd ../samplegrpcclient
-go install ./... 
-cd ..
+function init {
+    go get -u github.com/golang/protobuf/protoc-gen-go
+    apt-get install unzip > /tmp/log.log 2>&1
+    PROTOC_ZIP=protoc-3.3.0-linux-x86_64.zip
+    curl -OL https://github.com/google/protobuf/releases/download/v3.3.0/$PROTOC_ZIP
+    sudo unzip -o $PROTOC_ZIP -d /usr/local bin/protoc
+    rm -f $PROTOC_ZIP
+    cd samplegrpcserver
+    go install ./...
+    cd ../samplegrpcclient
+    go install ./... 
+    cd ..
+    mashling-cli create -c grpc-to-grpc-gateway.json -p petstore.proto -N
+    if [[ "$OSTYPE" == "darwin"* ]] ;then
+        mv mashling-custom/mashling-gateway-darwin-amd64 mashling-custom/mashling-gateway
+    elif [[ "$OSTYPE" == "msys"* ]] ;then
+        mv mashling-custom/mashling-gateway-windows-amd64.exe mashling-custom/mashling-gateway.exe
+    elif [[ "$OSTYPE" == "linux-gnu"* ]] ;then
+        mv mashling-custom/mashling-gateway-linux-amd64 mashling-custom/mashling-gateway
+    fi
+    cp mashling-custom/mashling-gateway . 
+}
 
-pushd $GOPATH/src/github.com/TIBCOSoftware/mashling
-go run build.go build
-popd
+function clear {
+    rm -rf mashilng-custom
+}
+
+function testcase1 {
 samplegrpcserver -port 9000 &
 pId=$!
 samplegrpcserver -port 9001 &
 pId1=$!
-mashling-gateway -c grpc-to-grpc-gateway.json > /tmp/grpc.log 2>&1 &
+./mashling-gateway -c grpc-to-grpc-gateway.json > /tmp/grpc.log 2>&1 &
 pId2=$!
 sleep 5
 samplegrpcclient -p 9096 -o 1 -i 2 > /tmp/client.log 2>&1
-popd
 if [[ "echo $(cat /tmp/client.log)" =~ "res : pet:<id:2" ]] && [[ "echo $(cat /tmp/grpc.log)" =~ "Completed" ]]
     then
         echo "PASS"
@@ -44,5 +49,4 @@ if [[ "echo $(cat /tmp/client.log)" =~ "res : pet:<id:2" ]] && [[ "echo $(cat /t
 fi        
 kill -9 $pId2
 kill -15 $pId $pId1
-mashling-cli grpc clean -p petstore.proto
 }
