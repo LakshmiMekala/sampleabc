@@ -63,7 +63,7 @@ pId=$!
 sleep 5
 go run main.go -client -name=CLIENT1 -url=ws://localhost:9096/ws > /tmp/client1.log 2>&1
 sleep 5
-error="connection error:dial tcp 127.0.0.1:8080: connect: connection refused"
+error="connection error: dial tcp 127.0.0.1:8080: connect: connection refused"
 if [[ "echo $(cat /tmp/websocket3.log)" =~ "Completed" ]] && [[ "echo $(cat /tmp/websocket3.log)" =~ "$error" ]] && [[ "echo $(cat /tmp/client1.log)" =~ "failed to connect backend url" ]]
     then 
         echo "PASS"
