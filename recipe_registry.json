@@ -5,11 +5,27 @@
       "description":"Mashling gateway recipes from TIBCOSoftware Engineering",
       "publish":[
         {
-          "recipe":"grpc-to-grpc-gateway",
+          "recipe":"anomaly-gateway",
           "featured":true
         },
         {
-          "recipe":"grpc-to-rest-gateway",
+          "recipe":"circuit-breaker-gateway",
+          "featured":false
+        },
+        {
+          "recipe":"graphql-gateway",
+          "featured":false
+        },
+        {
+          "recipe":"proxy-websocket",
+          "featured":false
+        },
+        {
+          "recipe":"proxy-with-ldap",
+          "featured":false
+        },
+        {
+          "recipe":"sqld-gateway",
           "featured":false
         }
       ]

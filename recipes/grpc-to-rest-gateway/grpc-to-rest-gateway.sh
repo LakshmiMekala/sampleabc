@@ -21,12 +21,14 @@ function init {
     mashling-cli create -c grpc-to-rest-gateway.json -p petstore.proto -N
     if [[ "$OSTYPE" == "darwin"* ]] ;then
         mv mashling-custom/mashling-gateway-darwin-amd64 mashling-custom/mashling-gateway
+        cp mashling-custom/mashling-gateway .
     elif [[ "$OSTYPE" == "msys"* ]] ;then
         mv mashling-custom/mashling-gateway-windows-amd64.exe mashling-custom/mashling-gateway.exe
+        cp mashling-custom/mashling-gateway.exe .
     elif [[ "$OSTYPE" == "linux-gnu"* ]] ;then
         mv mashling-custom/mashling-gateway-linux-amd64 mashling-custom/mashling-gateway
-    fi
-    cp mashling-custom/mashling-gateway . 
+        cp mashling-custom/mashling-gateway .
+    fi     
 }
 
 function clear {
