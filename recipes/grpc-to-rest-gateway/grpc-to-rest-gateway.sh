@@ -8,6 +8,10 @@ function get_test_cases {
 }
 
 function init {
+    pushd src/github.com/TIBCOSoftware/mashling
+    git checkout feature-grpc-support
+    go run build.go build
+    popd
     go get -u github.com/golang/protobuf/protoc-gen-go
     apt-get install unzip > /tmp/log.log 2>&1
     PROTOC_ZIP=protoc-3.3.0-linux-x86_64.zip
@@ -27,6 +31,10 @@ function init {
 
 function clear {
     rm -rf mashilng-custom
+    pushd src/github.com/TIBCOSoftware/mashling
+    git checkout master
+    go run build.go build
+    popd
 }
 
 function testcase1 {
