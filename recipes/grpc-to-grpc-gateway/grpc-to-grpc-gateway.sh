@@ -1,23 +1,23 @@
 #!/bin/bash
 
 function get_test_cases {
-    init
+    init ;
     local my_list=( testcase1 )
     echo "${my_list[@]}"
-    clear
+    clear ;
 }
 
-function init {
-    pushd $GOPATH/src/github.com/TIBCOSoftware/mashling
-    git checkout feature-grpc-support
-    go run build.go build
-    popd
+function init {    
     go get -u github.com/golang/protobuf/protoc-gen-go
     apt-get install unzip > /tmp/log.log 2>&1
     PROTOC_ZIP=protoc-3.3.0-linux-x86_64.zip
     curl -OL https://github.com/google/protobuf/releases/download/v3.3.0/$PROTOC_ZIP
     sudo unzip -o $PROTOC_ZIP -d /usr/local bin/protoc
     rm -f $PROTOC_ZIP
+    pushd $GOPATH/src/github.com/TIBCOSoftware/mashling
+    git checkout feature-grpc-support
+    go run build.go build
+    popd
     cd samplegrpcserver
     go install ./...
     cd ../samplegrpcclient
@@ -36,10 +36,6 @@ function init {
 
 function clear {
     rm -rf mashilng-custom
-    pushd $GOPATH/src/github.com/TIBCOSoftware/mashling
-    git checkout master
-    go run build.go build
-    popd
 }
 
 function testcase1 {

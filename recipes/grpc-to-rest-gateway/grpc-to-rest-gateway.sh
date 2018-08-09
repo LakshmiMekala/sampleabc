@@ -8,16 +8,16 @@ function get_test_cases {
 }
 
 function init {
-    pushd $GOPATH/src/github.com/TIBCOSoftware/mashling
-    git checkout feature-grpc-support
-    go run build.go build
-    popd
     go get -u github.com/golang/protobuf/protoc-gen-go
     apt-get install unzip > /tmp/log.log 2>&1
     PROTOC_ZIP=protoc-3.3.0-linux-x86_64.zip
     curl -OL https://github.com/google/protobuf/releases/download/v3.3.0/$PROTOC_ZIP
     sudo unzip -o $PROTOC_ZIP -d /usr/local bin/protoc
     rm -f $PROTOC_ZIP
+    pushd $GOPATH/src/github.com/TIBCOSoftware/mashling
+    git checkout feature-grpc-support
+    go run build.go build
+    popd
     mashling-cli create -c grpc-to-rest-gateway.json -p petstore.proto -N
     if [[ "$OSTYPE" == "darwin"* ]] ;then
         mv mashling-custom/mashling-gateway-darwin-amd64 mashling-custom/mashling-gateway
@@ -31,10 +31,6 @@ function init {
 
 function clear {
     rm -rf mashilng-custom
-    pushd $GOPATH/src/github.com/TIBCOSoftware/mashling
-    git checkout master
-    go run build.go build
-    popd
 }
 
 function testcase1 {
