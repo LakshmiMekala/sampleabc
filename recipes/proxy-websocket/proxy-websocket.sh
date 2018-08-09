@@ -7,6 +7,7 @@ function get_test_cases {
 
 # Run one client
 function testcase1 {
+go get github.com/gorilla/websocket
 mashling-gateway -c proxy-websocket.json > /tmp/websocket1.log 2>&1 &
 pId=$!
 sleep 5
@@ -21,9 +22,11 @@ if [[ "echo $(cat /tmp/websocket1.log)" =~ "Completed" ]]
         echo "FAIL"
 fi
 kill -9 $pId
+ps -a
 var=$(ps --ppid $pId1)
 pId3=$(echo $var | awk '{print $5}')
 kill -9 $pId3
+ps -a
 }
 
 # Run maximum+1 clients
@@ -44,11 +47,13 @@ if [[ "echo $(cat /tmp/websocket2.log)" =~ "Completed" ]] && [[ "echo $(cat /tmp
     else
         echo "FAIL"
 fi
+ps -a
 kill -9 $pId
 kill -SIGINT $pId2 $pId3
 var=$(ps --ppid $pId1)
 pId7=$(echo $var | awk '{print $5}')
 kill -9 $pId7
+ps -a
 }
 
 # Run client without server
@@ -65,5 +70,7 @@ if [[ "echo $(cat /tmp/websocket3.log)" =~ "Completed" ]] && [[ "echo $(cat /tmp
     else
         echo "FAIL"
 fi
+ps -a
 kill -9 $pId
+ps -a
 }
