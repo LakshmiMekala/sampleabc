@@ -31,9 +31,9 @@ function clear {
 }
 
 function testcase1 {
-./samplegrpcserver -port 9000 &
+samplegrpcserver -port 9000 &
 pId=$!
-./samplegrpcserver -port 9001 &
+samplegrpcserver -port 9001 &
 pId1=$!
 ./mashling-gateway -c grpc-to-grpc-gateway.json > /tmp/grpc.log 2>&1 &
 pId2=$!

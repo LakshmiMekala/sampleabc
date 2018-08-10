@@ -37,4 +37,9 @@ if [[ "echo $(cat /tmp/client.log)" =~ "res : pet:<id:2" ]] && [[ "echo $(cat /t
         echo "FAIL"
 fi        
 kill -9 $pId2
+echo ++++++++++++++++++++++++++++++++
+cat /tmp/client.log
+echo ++++++++++++++++++++++++++++++++
+cat /tmp/grpc.log
+echo ++++++++++++++++++++++++++++++++
 }
