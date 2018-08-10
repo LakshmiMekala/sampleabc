@@ -18,10 +18,19 @@
                 },
                 "handlers": [
                     {
-                        "dispatch": "PetStoreDispatch",
+                        "dispatch": "userByNameDispatch",
                         "settings": {
                             "autoIdReply": "false",
-                            "useReplyHandler": "false"
+                            "useReplyHandler": "false",
+                            "methodName": "UserByName"
+                        }
+                    },
+                    {
+                        "dispatch": "petByIdDispatch",
+                        "settings": {
+                            "autoIdReply": "false",
+                            "useReplyHandler": "false",
+                            "methodName": "PetById"
                         }
                     }
                 ]
@@ -29,12 +38,12 @@
         ],
         "dispatches": [
             {
-                "name": "PetStoreDispatch",
+                "name": "userByNameDispatch",
                 "routes": [
                     {
                         "steps": [
                             {
-                                "service": "PetStoregRPCServer",
+                                "service": "PetStoreUsers",
                                 "input": {
                                     "grpcMthdParamtrs": "${payload.grpcData}"
                                 }
@@ -45,7 +54,31 @@
                                 "error": false,
                                 "output": {
                                     "code": 200,
-                                    "data": "${PetStoregRPCServer.response.body}"
+                                    "data": "${PetStoreUsers.response.body}"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "petByIdDispatch",
+                "routes": [
+                    {
+                        "steps": [
+                            {
+                                "service": "PetStorePets",
+                                "input": {
+                                    "grpcMthdParamtrs": "${payload.grpcData}"
+                                }
+                            }
+                        ],
+                        "responses": [
+                            {
+                                "error": false,
+                                "output": {
+                                    "code": 200,
+                                    "data": "${PetStorePets.response.body}"
                                 }
                             }
                         ]
@@ -55,11 +88,19 @@
         ],
         "services": [
             {
-                "name": "PetStoregRPCServer",
-                "description": "Make calls to sample PetStore gRPC server",
+                "name": "PetStoreUsers",
+                "description": "Make calls to grpc end point",
                 "type": "grpc",
                 "settings": {
                     "hosturl": "localhost:9000"
+                }
+            },
+            {
+                "name": "PetStorePets",
+                "description": "Make calls to grpc end point",
+                "type": "grpc",
+                "settings": {
+                    "hosturl": "localhost:9001"
                 }
             }
         ]

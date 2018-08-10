@@ -1,59 +1,45 @@
 # gRPC to REST
-This recipe demonstrates receiving request from a gRPC client and routing to REST end point based on method names.
+This recipe demonstrates on receiving request from a gRPC client and routing to REST end point based on method names.
 
 ## Installation
-* Install [Go](https://golang.org/)
-* Install `grpc`
-```bash
-go get -u google.golang.org/grpc
-```
-* Install `protoc-gen-go` library
-```bash
-go get github.com/golang/protobuf/protoc-gen-go
-```
-* Download protoc for your respective OS from [here](https://github.com/google/protobuf/releases).<br>Extract protoc-$VERSION-$PLATFORM.zip file get the `protoc` binary from bin folder and configure it in PATH.
-* Install mashling
-```bash
-go get github.com/TIBCOSoftware/mashling/...
-```
+* Download [protoc](https://github.com/google/protobuf/releases) binary and configure it in PATH
+* Download and install [protoc-gen-go](https://github.com/golang/protobuf#installation)
+* Download and install [mashling](https://github.com/TIBCOSoftware/mashling#using-go)
 
 ## Setup
+Get the grpc to rest gateway files
 ```bash
 git clone https://github.com/TIBCOSoftware/mashling-recipes
 cd mashling-recipes/recipes/grpc-to-rest-gateway
 ```
-Create mashling gateway.
+
+Build sample client(grpcClient.go) provided here
 ```bash
-mashling-cli create -c grpc-to-rest-gateway.json -p petstore.proto -N -n grpc-rest-gateway-app
+go install ./...
 ```
 
-Copy created binary from grpc-rest-gateway-app folder to current.
+Create custom gateway binary by passing gateway json and proto file
 ```bash
-cp ./grpc-rest-gateway-app/mashling-gateway* .
+./mashling-cli create -c grpc-to-rest-gateway.json -p petstore.proto -N -n <APPNAME>
 ```
 
-Rename mashling-gateway* to grpc-rest-gateway
+Generated support files available in below path
+```bash
+cd <PATH TO APPNAME>/src/github.com/TIBCOSoftware/mashling/gen/grpc
+```
 
 ## Testing
-Start proxy gateway.
+Copy grpc-to-rest-gateway.json to `<APPNAME>` folder and run the `<CUSTOM BINARY>`.
 ```bash
-./grpc-rest-gateway -c grpc-to-rest-gateway.json
+./<CUSTOM BINARY> -c grpc-to-rest-gateway.json
 ```
-### #1 Testing PetById method
-Run sample gRPC client.
+
+Run sample client to check the output
 ```bash
-go run main.go -client -port 9096 -method pet -param 2
+./grpc-to-rest-gateway -p 9096 -o 1 -i 2
 ```
-Output can be seen as below.
-```
-res : pet:<id:2 name:"cat2" >
-```
-### #2 Testing UserByName method
-Run sample gRPC client.
-```bash
-go run main.go -client -port 9096 -method user -param user1
-```
-Output can be seen as below.
-```
-res : user:<id:1 username:"user1" email:"email1@test.com" phone:"123-456-7890" >
-```
+
+-p --> PORT value<br>
+-o --> 1 to invoke PetById method, 2 to invoke UserByName method<br>
+-i --> if -o is set to 1 this will take id value<br>
+-n --> if -o is set to 2 this will take name value<br>
