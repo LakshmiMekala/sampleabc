@@ -25,11 +25,11 @@ function testcase1 {
     popd
 
     #executing the gateway binary
-    mashling-gateway -c KafkaTrigger-To-RestInvoker.json > /tmp/kafka1.log &
+    mashling-gateway -c KafkaTrigger-To-RestInvoker.json > /tmp/kafka1.log 2>&1 &
     pId4=$!
     sleep 20
 
-    cd $GOPATH/kafka
+    pushd $GOPATH/kafka
 
     #passing message from kafka producer
     echo "{\"category\":{\"id\":10,\"name\":\"string\"},\"id\":10,\"name\":\"doggie\",\"photoUrls\":[\"string\"],\"status\":\"available\",\"tags\":[{\"id\":0,\"name\":\"string\"}]}" | bin/kafka-console-producer.sh --broker-list localhost:9092 --topic syslog &  pId3=$!    
@@ -40,13 +40,14 @@ function testcase1 {
     sleep 5
     kill -SIGINT $pId4
     sleep 5
-    kill -SIGINT $pId5
+    kill -SIGINT $pId3
     curl --request GET http://petstore.swagger.io/v2/pet/10 > /tmp/kafka.log
-    if [ "echo $(cat /tmp/kafka.log)" == "{\"category\":{\"id\":10,\"name\":\"string\"},\"id\":10,\"name\":\"doggie\",\"photoUrls\":[\"string\"],\"status\":\"available\",\"tags\":[{\"id\":0,\"name\":\"string\"}]}" ] 
+    if [[ "echo $(cat /tmp/kafka1.log)" =~ "Completed" ]] && [ "echo $(cat /tmp/kafka.log)" == "{\"category\":{\"id\":10,\"name\":\"string\"},\"id\":10,\"name\":\"doggie\",\"photoUrls\":[\"string\"],\"status\":\"available\",\"tags\":[{\"id\":0,\"name\":\"string\"}]}" ] 
         then 
             echo "PASS"   
         else
             echo "FAIL"
     fi
     rm -f /tmp/test.log /tmp/kafka.log
+    popd
 }
