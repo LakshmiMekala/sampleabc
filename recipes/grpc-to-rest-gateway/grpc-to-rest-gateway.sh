@@ -32,6 +32,7 @@ pId2=$!
 sleep 5
 go run main.go -client -port 9096 -method pet -param 2 > /tmp/client.log 2>&1 &
 pId3=$!
+sleep 5
 if [[ "echo $(cat /tmp/client.log)" =~ "res : pet:<id:2" ]] && [[ "echo $(cat /tmp/grpc.log)" =~ "Completed" ]]
     then
         echo "PASS"
@@ -40,11 +41,6 @@ if [[ "echo $(cat /tmp/client.log)" =~ "res : pet:<id:2" ]] && [[ "echo $(cat /t
 fi        
 kill -9 $pId2
 kill -9 $pId3
-echo AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-cat /tmp/grpc.log
-echo BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
-cat /tmp/client.log
-echo CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
 }
 
 function testcase2 {
@@ -53,6 +49,7 @@ pId2=$!
 sleep 5
 go run main.go -client -port 9096 -method user -param user1 > /tmp/client.log 2>&1 &
 pId3=$!
+sleep 5
 if [[ "echo $(cat /tmp/client.log)" =~ "res : user:<id:1 username" ]] && [[ "echo $(cat /tmp/grpc.log)" =~ "Completed" ]]
     then
         echo "PASS"
@@ -61,9 +58,4 @@ if [[ "echo $(cat /tmp/client.log)" =~ "res : user:<id:1 username" ]] && [[ "ech
 fi        
 kill -9 $pId2
 kill -9 $pId3
-echo AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-cat /tmp/grpc.log
-echo BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
-cat /tmp/client.log
-echo CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
 }

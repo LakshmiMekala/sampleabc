@@ -35,6 +35,7 @@ pId=$!
 sleep 5
 go run main.go -client -port 9096 -method pet -param 2 > /tmp/client.log 2>&1 &
 pId1=$!
+sleep 5
 if [[ "echo $(cat /tmp/client.log)" =~ "res : pet:<id:2" ]] && [[ "echo $(cat /tmp/grpc.log)" =~ "Completed" ]]
     then
         echo "PASS"
@@ -42,7 +43,10 @@ if [[ "echo $(cat /tmp/client.log)" =~ "res : pet:<id:2" ]] && [[ "echo $(cat /t
         echo "FAIL"
 fi        
 kill -9 $pId2
-kill -15 $pId $pId1
+kill -9 $pId1
+var=$(ps --ppid $pId)
+pId7=$(echo $var | awk '{print $5}')
+kill -9 $pId7
 }
 
 function testcase2 {
@@ -54,6 +58,7 @@ pId=$!
 sleep 5
 go run main.go -client -port 9096 -method user -param user2 > /tmp/client.log 2>&1 &
 pId1=$!
+sleep 5
 if [[ "echo $(cat /tmp/client.log)" =~ "res : user:<id:2 username" ]] && [[ "echo $(cat /tmp/grpc.log)" =~ "Completed" ]]
     then
         echo "PASS"
@@ -61,5 +66,8 @@ if [[ "echo $(cat /tmp/client.log)" =~ "res : user:<id:2 username" ]] && [[ "ech
         echo "FAIL"
 fi        
 kill -9 $pId2
-kill -15 $pId $pId1
+kill -9 $pId1
+var=$(ps --ppid $pId)
+pId7=$(echo $var | awk '{print $5}')
+kill -9 $pId7
 }
