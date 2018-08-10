@@ -34,6 +34,13 @@ function testcase1 {
     #passing message from kafka producer
     echo "{\"category\":{\"id\":10,\"name\":\"string\"},\"id\":10,\"name\":\"doggie\",\"photoUrls\":[\"string\"],\"status\":\"available\",\"tags\":[{\"id\":0,\"name\":\"string\"}]}" | bin/kafka-console-producer.sh --broker-list localhost:9092 --topic syslog &  pId3=$!    
     sleep 2
+    if [[ "echo $(cat /tmp/kafka1.log)" =~ "Completed" ]] && [ "echo $(cat /tmp/kafkagw.log)" == "{\"category\":{\"id\":10,\"name\":\"string\"},\"id\":10,\"name\":\"doggie\",\"photoUrls\":[\"string\"],\"status\":\"available\",\"tags\":[{\"id\":0,\"name\":\"string\"}]}" ] 
+        then 
+            echo "PASS"   
+        else
+            echo "FAIL"
+    fi
+    popd    
     kill -SIGINT $pId1
     sleep 5
     kill -SIGINT $pId
@@ -41,13 +48,5 @@ function testcase1 {
     kill -SIGINT $pId4
     sleep 5
     kill -SIGINT $pId3
-    curl --request GET http://petstore.swagger.io/v2/pet/10 > /tmp/kafka.log
-    if [[ "echo $(cat /tmp/kafka1.log)" =~ "Completed" ]] && [ "echo $(cat /tmp/kafka.log)" == "{\"category\":{\"id\":10,\"name\":\"string\"},\"id\":10,\"name\":\"doggie\",\"photoUrls\":[\"string\"],\"status\":\"available\",\"tags\":[{\"id\":0,\"name\":\"string\"}]}" ] 
-        then 
-            echo "PASS"   
-        else
-            echo "FAIL"
-    fi
-    rm -f /tmp/test.log /tmp/kafka.log
-    popd
+    curl --request GET http://petstore.swagger.io/v2/pet/10 > /tmp/kafkagw.log
 }
