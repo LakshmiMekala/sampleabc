@@ -7,6 +7,26 @@
         {
           "recipe":"anomaly-gateway",
           "featured":true
+        },
+        {
+          "recipe":"circuit-breaker-gateway",
+          "featured":false
+        },
+        {
+          "recipe":"graphql-gateway",
+          "featured":false
+        },
+        {
+          "recipe":"proxy-websocket",
+          "featured":false
+        },
+        {
+          "recipe":"proxy-with-ldap",
+          "featured":false
+        },
+        {
+          "recipe":"sqld-gateway",
+          "featured":false
         }
       ]
     },
