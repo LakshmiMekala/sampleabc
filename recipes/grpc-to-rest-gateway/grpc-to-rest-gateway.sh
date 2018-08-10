@@ -29,7 +29,8 @@ function testcase1 {
 ./mashling-gateway -c grpc-to-rest-gateway.json > /tmp/grpc.log 2>&1 &
 pId2=$!
 sleep 5
-./grpc-to-rest-gateway -p 9096 -o 1 -i 2 > /tmp/client.log 2>&1
+go run main.go -client -port 9096 -method pet -param 2 > /tmp/client.log 2>&1 &
+pId3=$!
 if [[ "echo $(cat /tmp/client.log)" =~ "res : pet:<id:2" ]] && [[ "echo $(cat /tmp/grpc.log)" =~ "Completed" ]]
     then
         echo "PASS"
@@ -37,9 +38,10 @@ if [[ "echo $(cat /tmp/client.log)" =~ "res : pet:<id:2" ]] && [[ "echo $(cat /t
         echo "FAIL"
 fi        
 kill -9 $pId2
+kill -9 $pId3
 echo AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-cat /tmp/client.log
-echo BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
 cat /tmp/grpc.log
+echo BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+cat /tmp/client.log
 echo CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
 }
