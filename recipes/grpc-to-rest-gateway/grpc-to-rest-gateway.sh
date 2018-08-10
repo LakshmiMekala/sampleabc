@@ -7,7 +7,7 @@ function get_test_cases {
     clear ;
 }
 
-function init {   
+function init { 
     mashling-cli create -c grpc-to-rest-gateway.json -p petstore.proto -N
     if [[ "$OSTYPE" == "darwin"* ]] ;then
         mv mashling-custom/mashling-gateway-darwin-amd64 mashling-custom/mashling-gateway
