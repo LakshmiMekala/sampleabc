@@ -11,7 +11,7 @@ function init {
     go get -u github.com/golang/protobuf/protoc-gen-go
     apt-get install unzip > /tmp/log.log 2>&1
     curl -OL https://github.com/google/protobuf/releases/download/v3.3.0/protoc-3.3.0-linux-x86_64.zip > /tmp/test5.log
-    sudo unzip -o $PROTOC_ZIP -d /usr/local bin/protoc
+    sudo unzip -o protoc-3.3.0-linux-x86_64.zip -d /usr/local bin/protoc
     rm -f $PROTOC_ZIP
     cd samplegrpcserver
     go install ./...
