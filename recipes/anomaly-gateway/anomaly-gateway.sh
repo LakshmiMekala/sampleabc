@@ -23,6 +23,6 @@ if [ $response -eq 200 ] && [[ "echo $(cat /tmp/client.log)" =~ "number of anoma
 fi  
 kill -9 $pId
 kill $(lsof -t -i:1234)
-/tmp/server.log
+cat /tmp/server.log
 cat /tmp/client.log
 }
