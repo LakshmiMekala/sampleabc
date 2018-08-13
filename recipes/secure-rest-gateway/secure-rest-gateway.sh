@@ -66,7 +66,9 @@ function testcase1 {
 	popd
 	
 	rm -f /tmp/client.log /tmp/gw.log
-	kill -SIGINT $pId
+	#kill -SIGINT $pId
+	var=$(ps --ppid $pId)
+	pId3=$(echo $var | awk '{print $5}')
 	kill -SIGINT $pId2
 	
 }
