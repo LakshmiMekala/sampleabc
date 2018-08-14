@@ -5,66 +5,6 @@
       "description":"Mashling gateway recipes from TIBCOSoftware Engineering",
       "publish":[
         {
-          "recipe":"event-dispatcher-router-mashling",
-          "featured":true
-        },
-        {
-          "recipe":"rest-conditional-gateway",
-          "featured":false
-        },
-        {
-          "recipe":"rest-gateway-with-tracing",
-          "featured":false
-        },
-        {
-          "recipe":"mqtt-lambda-tci",
-          "featured":true
-        },
-        {
-          "recipe":"secure-rest-gateway",
-          "featured":true
-        },
-        {
-          "recipe":"mqtt-gateway",
-          "featured":false
-        },
-        {
-          "recipe":"RestTrigger-To-KafkaPublisher",
-          "featured":false
-        },
-        {
-          "recipe":"secure-rest-gateway-with-basic-auth",
-          "featured":false
-        },
-        {
-          "recipe":"mqtt-producer",
-          "featured":false
-        },        
-        {
-          "recipe":"tunable-rest-gateway",
-          "featured":false
-        },
-        {
-          "recipe":"circuit-breaker-gateway",
-          "featured":false
-        },
-        {
-          "recipe":"graphql-gateway",
-          "featured":false
-        },
-        {
-          "recipe":"proxy-websocket",
-          "featured":false
-        },
-        {
-          "recipe":"proxy-with-ldap",
-          "featured":false
-        },
-        {
-          "recipe":"sqld-gateway",
-          "featured":false
-        },
-        {
           "recipe":"grpc-to-grpc-gateway",
           "featured":false,
           "custom_gateway_required":true
@@ -73,10 +13,6 @@
           "recipe":"grpc-to-rest-gateway",
           "featured":false,
           "custom_gateway_required":true
-        },
-        {
-        "recipe":"KafkaTrigger-To-RestInvoker",
-        "featured":true
         },
         {
           "recipe":"jwt-validator",
