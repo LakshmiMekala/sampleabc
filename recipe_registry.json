@@ -75,6 +75,10 @@
         {
         "recipe":"KafkaTrigger-To-RestInvoker",
         "featured":true
+        },
+        {
+          "recipe":"jwt-validator",
+          "featured":false
         }
       ]
     },
