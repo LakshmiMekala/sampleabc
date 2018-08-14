@@ -47,7 +47,6 @@ if [[ "echo $(cat /tmp/websocket2.log)" =~ "Completed" ]] && [[ "echo $(cat /tmp
     else
         echo "FAIL"
 fi
-ps -a
 kill -9 $pId
 kill -SIGINT $pId2 $pId3
 var=$(ps --ppid $pId1)
