@@ -41,6 +41,7 @@ if [[ "echo $(cat /tmp/client1.log)" =~ "res : pet:<id:2" ]] && [[ "echo $(cat /
 fi        
 kill -9 $pId2
 kill -9 $pId3
+cat /tmp/grpc1.log
 }
 
 function testcase2 {
@@ -58,4 +59,5 @@ if [[ "echo $(cat /tmp/client2.log)" =~ "res : user:<id:1 username" ]] && [[ "ec
 fi        
 kill -9 $pId2
 kill -9 $pId3
+/tmp/grpc2.log
 }

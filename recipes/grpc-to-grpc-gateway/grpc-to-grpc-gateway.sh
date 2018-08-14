@@ -47,6 +47,7 @@ kill -9 $pId1
 var=$(ps --ppid $pId)
 pId7=$(echo $var | awk '{print $5}')
 kill -9 $pId7
+/tmp/grpc1.log
 }
 
 function testcase2 {
@@ -70,4 +71,5 @@ kill -9 $pId1
 var=$(ps --ppid $pId)
 pId7=$(echo $var | awk '{print $5}')
 kill -9 $pId7
+/tmp/grpc2.log
 }
