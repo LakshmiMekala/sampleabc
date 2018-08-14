@@ -66,11 +66,13 @@
         },
         {
           "recipe":"grpc-to-grpc-gateway",
-          "featured":true
+          "featured":false,
+          "custom_gateway_required":true
         },
         {
           "recipe":"grpc-to-rest-gateway",
-          "featured":false
+          "featured":false,
+          "custom_gateway_required":true
         },
         {
         "recipe":"KafkaTrigger-To-RestInvoker",
