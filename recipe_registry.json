@@ -67,6 +67,21 @@
         {
           "recipe":"circuit-breaker-gateway",
           "featured":false
+        },
+        {
+          "recipe":"grpc-to-rest-gateway",
+          "featured":false,
+          "custom_gateway-required": true
+        },
+        {
+          "recipe":"grpc-to-grpc-gateway",
+          "featured":false,
+          "custom_gateway-required": true
+        },
+        {
+          "recipe":"rest-to-grpc-gateway",
+          "featured":false,
+          "custom_gateway-required": true
         }
       ]
     },
