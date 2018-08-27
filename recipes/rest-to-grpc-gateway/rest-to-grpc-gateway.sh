@@ -23,9 +23,6 @@ if [ $response -eq 200  ] && [[ "echo $(cat /tmp/grpc1.log)" =~ "Completed" ]]
         echo "FAIL"
 fi        
 kill -9 $pId2
-# var=$(ps --ppid $pId)
-# pId7=$(echo $var | awk '{print $5}')
-# kill -9 $pId7
 kill -9 $(lsof -t -i:9000)
 }
 
@@ -47,9 +44,6 @@ if [ $response -eq 200  ] && [[ "echo $(cat /tmp/grpc2.log)" =~ "Completed" ]]
         echo "FAIL"
 fi        
 kill -9 $pId2
-# var=$(ps --ppid $pId)
-# pId7=$(echo $var | awk '{print $5}')
-# kill -9 $pId7
 kill -9 $(lsof -t -i:9000)
 }
 
@@ -69,9 +63,6 @@ if [ $response -eq 200  ] && [[ "echo $(cat /tmp/grpc3.log)" =~ "Completed" ]]
         echo "FAIL"
 fi        
 kill -9 $pId2
-# var=$(ps --ppid $pId)
-# pId7=$(echo $var | awk '{print $5}')
-# kill -9 $pId7
 kill -9 $(lsof -t -i:9000)
 }
 
@@ -93,10 +84,5 @@ if [[ "echo $(cat /tmp/get4.log)" =~ "rpc error: code = Unknown desc = User not 
         echo "FAIL"
 fi        
 kill -9 $pId2
-# var=$(ps --ppid $pId)
-# echo "$var"
-# pId7=$(echo $var | awk '{print $5}')
-# echo "$pId7"
-# kill -9 $pId7
 kill -9 $(lsof -t -i:9000)
 }
