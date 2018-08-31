@@ -20,7 +20,9 @@ if [[ "echo $(cat /tmp/client1.log)" =~ "res : pet:<id:2" ]] && [[ "echo $(cat /
     else
         echo "FAIL"
 fi        
-kill -9 $pId2
+kill -9 $pId2 
+cat /tmp/grpc1.log
+cat /tmp/client1.log
 }
 
 #UserByName method
@@ -39,6 +41,8 @@ if [[ "echo $(cat /tmp/client2.log)" =~ "res : user:" ]] && [[ "echo $(cat /tmp/
         echo "FAIL"
 fi        
 kill -9 $pId2
+cat /tmp/grpc2.log
+cat /tmp/client2.log
 }
 
 #PetPUT method
@@ -57,4 +61,6 @@ if [[ "echo $(cat /tmp/client3.log)" =~ "res : pet:<id:2 name" ]] && [[ "echo $(
         echo "FAIL"
 fi        
 kill -9 $pId2
+cat /tmp/grpc3.log
+cat /tmp/client3.log
 }
