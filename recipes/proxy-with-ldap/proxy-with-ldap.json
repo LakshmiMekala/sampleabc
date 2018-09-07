@@ -119,7 +119,7 @@
         "description": "Make GET calls against a remote HTTP service using a Flogo flow.",
         "type": "flogoFlow",
         "settings": {
-          "reference": "github.com/TIBCOSoftware/mashling/lib/flow/Proxy.json"
+          "reference": "github.com/TIBCOSoftware/mashling/lib/flow/Proxy.json#feature-mashling-as-an-action"
         }
       }
     ]

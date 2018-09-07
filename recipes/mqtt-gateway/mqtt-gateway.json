@@ -206,7 +206,7 @@
         "description": "Make GET calls against a remote HTTP service using a Flogo flow.",
         "type": "flogoFlow",
         "settings": {
-          "reference": "github.com/TIBCOSoftware/mashling/lib/flow/RestTriggerToRestGetActivity.json"
+          "reference": "github.com/LakshmiMekala/mashlingflows/RestTriggerToRestGetActivity.json"
         }
       },
       {
@@ -214,7 +214,7 @@
         "description": "Make PUT calls against a remote HTTP service using a Flogo flow.",
         "type": "flogoFlow",
         "settings": {
-          "reference": "github.com/TIBCOSoftware/mashling/lib/flow/RestTriggerToRestPutActivity.json"
+          "reference": "github.com/LakshmiMekala/mashlingflows/RestTriggerToRestPutActivity.json"
         }
       },
       {
@@ -222,7 +222,7 @@
         "description": "Make PUT calls against a remote HTTP service using a Flogo flow.",
         "type": "flogoFlow",
         "settings": {
-          "reference": "github.com/TIBCOSoftware/mashling/lib/flow/RestTriggerToRestPutActivity.json"
+          "reference": "github.com/LakshmiMekala/mashlingflows/RestTriggerToRestPutActivity.json"
         }
       },
       {
@@ -230,7 +230,7 @@
         "description": "Make PUT calls against a remote HTTP service using a Flogo flow.",
         "type": "flogoFlow",
         "settings": {
-          "reference": "github.com/TIBCOSoftware/mashling/lib/flow/RestTriggerToRestPutActivity.json"
+          "reference": "github.com/LakshmiMekala/mashlingflows/RestTriggerToRestPutActivity.json"
         }
       }
     ]

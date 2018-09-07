@@ -8,12 +8,12 @@ function testcase1 {
 
     pushd $GOPATH/kafka
     # starting zookeeper in background
-    bin/zookeeper-server-start.sh config/zookeeper.properties > /tmp/kafka.log 2>&1 &
+    bin/zookeeper-server-start.sh config/zookeeper.properties > /tmp/kafka.log &
     pId=$!
     sleep 10
 
     # starting kafka server in background
-    bin/kafka-server-start.sh config/server.properties > /tmp/kafka.log  2>&1 &
+    bin/kafka-server-start.sh config/server.properties > /tmp/kafka.log &
     pId1=$!
     sleep 10
 
@@ -25,7 +25,7 @@ function testcase1 {
     popd
 
     #executing the gateway binary
-    mashling-gateway -c KafkaTrigger-To-KafkaPublisher.json > /tmp/kafka1.log &
+    mashling-gateway -c kafkatrigger-to-kafkapublisher.json > /tmp/kafka1.log &
     pId4=$!
     sleep 20
 

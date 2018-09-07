@@ -29,14 +29,6 @@
           "featured":false
         },
         {
-          "recipe":"KafkaTrigger-To-KafkaPublisher",
-          "featured":true
-        },
-        {
-          "recipe":"KafkaTrigger-To-RestInvoker",
-          "featured":false
-        },
-        {
           "recipe":"RestTrigger-To-KafkaPublisher",
           "featured":false
         },
@@ -44,6 +36,10 @@
           "recipe":"secure-rest-gateway-with-basic-auth",
           "featured":false
         },
+        {
+          "recipe":"anomaly-gateway",
+          "featured":false
+        },   
         {
           "recipe":"mqtt-producer",
           "featured":false
@@ -53,15 +49,7 @@
           "featured":false
         },
         {
-          "recipe":"anomaly-gateway",
-          "featured":true
-        },
-        {
-          "recipe":"circuit-breaker-gateway",
-          "featured":false
-        },
-        {
-          "recipe":"graphql-gateway",
+          "recipe":"jwt-validator",
           "featured":false
         },
         {
@@ -69,27 +57,16 @@
           "featured":false
         },
         {
-          "recipe":"proxy-with-ldap",
+          "recipe":"mashling-consul-integration",
           "featured":false
         },
         {
-          "recipe":"sqld-gateway",
+          "recipe":"graphql-gateway",
           "featured":false
         },
         {
-          "recipe":"grpc-to-rest-gateway",
-          "featured":false,
-          "custom_gateway_required": true
-        },
-        {
-          "recipe":"grpc-to-grpc-gateway",
-          "featured":false,
-          "custom_gateway_required": true
-        },
-        {
-          "recipe":"rest-to-grpc-gateway",
-          "featured":false,
-          "custom_gateway_required": true
+          "recipe":"circuit-breaker-gateway",
+          "featured":false
         }
       ]
     },

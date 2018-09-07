@@ -75,7 +75,7 @@
         "description": "Make GET calls against a remote HTTP service using a Flogo flow.",
         "type": "flogoFlow",
         "settings": {
-          "reference": "github.com/TIBCOSoftware/mashling/lib/flow/SecureRestInvoker.json"
+          "reference": "github.com/TIBCOSoftware/mashling/lib/flow/SecureRestInvoker.json#feature-mashling-as-an-action"
         }
       }
     ]
