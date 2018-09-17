@@ -17,6 +17,14 @@
           "featured":false
         },
         {
+          "recipe":"jwt-validator",
+          "featured":false
+        },
+        {
+          "recipe":"jwt-validator",
+          "featured":false
+        },
+        {
           "recipe":"mqtt-lambda-tci",
           "featured":true
         },
