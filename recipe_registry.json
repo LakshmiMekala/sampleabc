@@ -21,7 +21,7 @@
           "featured":false
         },
         {
-          "recipe":"jwt-validator",
+          "recipe":"rate-limiter-gateway",
           "featured":false
         },
         {
