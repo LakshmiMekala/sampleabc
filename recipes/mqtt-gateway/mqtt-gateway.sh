@@ -5,7 +5,7 @@ function get_test_cases {
     echo "${my_list[@]}"
 }
 function testcase1 {
-mosquitto &
+
 mashling-gateway -c mqtt-gateway.json > /tmp/mqtt.log 2>&1 &
 pId=$!
 echo "$pId"
